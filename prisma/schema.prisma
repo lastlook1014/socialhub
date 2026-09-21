@@ -1,4 +1,4 @@
-// Command Center — Enterprise schema
+// SocialHub — Enterprise schema
 // Covers §55 entities: Organization, Workspace, User, Role, Permission,
 // SocialAccount, Post, Task, Approval, Comment, Analytics, Mail, Audit, etc.
 //

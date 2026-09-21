@@ -619,7 +619,7 @@ function AppearanceTab() {
       <Card className="card-premium">
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center gap-2 text-base"><Palette className="h-4 w-4 text-accent-emerald" /> Theme</CardTitle>
-          <CardDescription>Choose how Command Center looks to you.</CardDescription>
+          <CardDescription>Choose how SocialHub looks to you.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-3 gap-3">
@@ -762,7 +762,7 @@ function PrivacyTab() {
           <div className="flex items-center justify-between rounded-lg border border-border/60 bg-card/40 p-3">
             <div>
               <div className="text-sm font-medium text-foreground">Share anonymous usage analytics</div>
-              <p className="mt-0.5 text-xs text-muted-foreground">Help improve Command Center by sending anonymized telemetry.</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">Help improve SocialHub by sending anonymized telemetry.</p>
             </div>
             <Switch checked={shareAnalytics} onCheckedChange={setShareAnalytics} />
           </div>

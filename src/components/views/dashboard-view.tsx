@@ -86,7 +86,7 @@ export function DashboardView() {
             Welcome back, Aisha
           </h2>
           <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-            Your command center is healthy. {data.accounts.filter((a) => a.health !== 'GREEN').length} account(s) need attention.
+            Your SocialHub workspace is healthy. {data.accounts.filter((a) => a.health !== 'GREEN').length} account(s) need attention.
             You have {data.kpis.find((k) => k.key === 'approvals')?.value} post(s) awaiting approval.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">

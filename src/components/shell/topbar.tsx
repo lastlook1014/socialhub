@@ -51,7 +51,7 @@ export function Topbar() {
     refetchInterval: 30_000,
   })
 
-  const meta = VIEW_TITLES[view] ?? { title: 'Command Center', subtitle: '' }
+  const meta = VIEW_TITLES[view] ?? { title: 'SocialHub', subtitle: 'One Platform, Total Control' }
 
   return (
     <header className="glass-subtle sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-border/60 px-4 sm:px-6">

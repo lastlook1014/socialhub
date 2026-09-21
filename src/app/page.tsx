@@ -27,9 +27,9 @@ function Footer() {
     <footer className="mt-auto border-t border-border/60 bg-muted/20">
       <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center justify-between gap-2 px-4 py-3 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
         <div className="flex items-center gap-2">
-          <span className="font-medium text-foreground">Command Center</span>
+          <span className="font-medium text-foreground">SocialHub</span>
           <span className="text-muted-foreground/60">·</span>
-          <span>Northwind Communications</span>
+          <span>One Platform, Total Control</span>
         </div>
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1.5">

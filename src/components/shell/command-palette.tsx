@@ -113,7 +113,7 @@ export function CommandPalette() {
       <DialogContent className="max-w-2xl gap-0 overflow-hidden p-0">
         <DialogHeader className="sr-only">
           <DialogTitle>Command Palette</DialogTitle>
-          <DialogDescription>Search and run actions across Command Center</DialogDescription>
+          <DialogDescription>Search and run actions across SocialHub</DialogDescription>
         </DialogHeader>
         <div className="flex items-center gap-3 border-b border-border px-4">
           <Search className="h-4 w-4 text-muted-foreground" />
@@ -174,7 +174,7 @@ export function CommandPalette() {
             </span>
           </div>
           <span className="flex items-center gap-1">
-            Command Center
+            SocialHub
             <ArrowRight className="h-3 w-3" />
           </span>
         </div>

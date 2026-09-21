@@ -1,4 +1,4 @@
-// Command Center — seed script
+// SocialHub — seed script
 // Run with: bun run prisma/seed.ts
 // Seeds a realistic enterprise dataset: org, workspaces, users, social accounts,
 // posts (full lifecycle), tasks, approvals, comments, analytics, mail domain,

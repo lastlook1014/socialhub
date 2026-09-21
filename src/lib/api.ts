@@ -1,4 +1,4 @@
-// Command Center API helpers
+// SocialHub API helpers
 import { NextResponse } from 'next/server'
 import type { ZodError } from 'zod'
 

@@ -14,20 +14,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Command Center — Social Operations Platform",
+  title: "SocialHub — One Platform, Total Control",
   description:
-    "Enterprise Social Operations, Publishing, Analytics & Organization Communications Platform. Connect, organize, create, review, approve, publish, monitor, engage, analyze and report — all in one secure application.",
+    "SocialHub is the enterprise social operations, publishing, analytics & organization communications platform. One platform, total control — connect, organize, create, review, approve, publish, monitor, engage, analyze and report.",
   keywords: [
     "social media operations",
     "publishing",
     "analytics",
-    "command center",
+    "socialhub",
     "team collaboration",
     "mail center",
+    "social media management",
   ],
-  authors: [{ name: "Command Center" }],
+  authors: [{ name: "SocialHub" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/socialhub-logo.jpg",
+    apple: "/socialhub-logo.jpg",
+  },
+  openGraph: {
+    title: "SocialHub — One Platform, Total Control",
+    description:
+      "The enterprise social operations, publishing, analytics & organization communications platform.",
+    type: "website",
   },
 };
 

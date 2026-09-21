@@ -11,6 +11,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import Image from 'next/image'
 
 interface NavItem {
   id: ViewId
@@ -75,13 +76,20 @@ export function Sidebar() {
     >
       {/* Brand */}
       <div className="flex h-16 items-center gap-3 px-4">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl accent-gradient text-white shadow-sm">
-          <Shield className="h-5 w-5" />
+        <div className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl shadow-sm ring-1 ring-border/60">
+          <Image
+            src="/socialhub-logo.jpg"
+            alt="SocialHub"
+            width={36}
+            height={36}
+            className="h-9 w-9 object-cover"
+            priority
+          />
         </div>
         {!sidebarCollapsed && (
           <div className="min-w-0 flex-1">
-            <div className="truncate text-sm font-semibold tracking-tight text-foreground">Command Center</div>
-            <div className="truncate text-[11px] text-muted-foreground">Northwind · Marketing Ops</div>
+            <div className="truncate text-sm font-semibold tracking-tight text-foreground">SocialHub</div>
+            <div className="truncate text-[11px] text-muted-foreground">One Platform, Total Control</div>
           </div>
         )}
         <Button
