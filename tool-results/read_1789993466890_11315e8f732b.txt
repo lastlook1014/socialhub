@@ -1,0 +1,2002 @@
+     1→# MASTER BUILD PROMPT
+     2→
+     3→# ENTERPRISE SOCIAL OPERATIONS, PUBLISHING, ANALYTICS & ORGANIZATION COMMUNICATION PLATFORM
+     4→
+     5→## PROJECT CODENAME
+     6→
+     7→**Command Center**
+     8→
+     9→---
+    10→
+    11→# 0. YOUR ROLE
+    12→
+    13→Act as a complete senior product and engineering organization.
+    14→
+    15→You are simultaneously:
+    16→
+    17→* Principal Software Architect
+    18→* Senior Full-Stack Engineer
+    19→* Backend Engineer
+    20→* Frontend Engineer
+    21→* Database Architect
+    22→* DevOps Engineer
+    23→* Security Engineer
+    24→* API Integration Engineer
+    25→* UX/UI Designer
+    26→* QA Engineer
+    27→* Test Automation Engineer
+    28→* Product Manager
+    29→* Technical Writer
+    30→
+    31→You are responsible for designing and implementing a **production-grade enterprise SaaS platform**, not a prototype.
+    32→
+    33→Do not build a collection of disconnected dashboard pages.
+    34→
+    35→Build a coherent, scalable product with:
+    36→
+    37→* strong architecture
+    38→* excellent UX
+    39→* secure authentication
+    40→* role-based permissions
+    41→* reliable background workers
+    42→* official social-platform integrations
+    43→* organization-owned email infrastructure
+    44→* analytics
+    45→* task management
+    46→* approvals
+    47→* auditability
+    48→* observability
+    49→* automated testing
+    50→* production readiness
+    51→
+    52→---
+    53→
+    54→# 1. PRODUCT VISION
+    55→
+    56→Build a centralized **Social Media Operations & Organization Communications Platform** for professional teams managing multiple authorized social-media accounts, content workflows, staff tasks, analytics, community management and organization email infrastructure.
+    57→
+    58→The fundamental workflow is:
+    59→
+    60→**CONNECT → ORGANIZE → CREATE → REVIEW → APPROVE → PUBLISH → MONITOR → ENGAGE → ANALYZE → REPORT**
+    61→
+    62→The platform should eliminate unnecessary manual switching between multiple social-media dashboards.
+    63→
+    64→A team member should be able to log into one secure application and access everything they are authorized to manage.
+    65→
+    66→---
+    67→
+    68→# 2. IMPORTANT COMPLIANCE PRINCIPLE
+    69→
+    70→The platform must use legitimate and documented integration mechanisms.
+    71→
+    72→Use:
+    73→
+    74→* Official APIs
+    75→* OAuth
+    76→* Provider-supported webhooks
+    77→* Provider-supported publishing
+    78→* Provider-supported analytics
+    79→* Provider-supported engagement functionality
+    80→
+    81→Do NOT implement mechanisms intended to:
+    82→
+    83→* bypass platform restrictions
+    84→* evade account suspension
+    85→* bypass rate limits
+    86→* spoof device fingerprints
+    87→* rotate IPs to evade enforcement
+    88→* rotate proxies to evade enforcement
+    89→* bypass CAPTCHAs
+    90→* automate around platform security
+    91→* create fake identities
+    92→* generate artificial engagement
+    93→* mass-report users
+    94→* manipulate trending systems
+    95→* evade spam detection
+    96→
+    97→If a platform rejects an operation:
+    98→
+    99→**STOP → LOG → EXPLAIN → REQUIRE HUMAN REVIEW**
+   100→
+   101→The product must help teams operate efficiently while respecting provider rules.
+   102→
+   103→---
+   104→
+   105→# 3. DESIGN INSPIRATION
+   106→
+   107→Research modern products such as:
+   108→
+   109→* Later
+   110→* Buffer
+   111→* Hootsuite
+   112→* Sprout Social
+   113→* Metricool
+   114→
+   115→Use them for **workflow research and feature inspiration only**.
+   116→
+   117→Do not copy their branding, source code, proprietary UI or visual identity.
+   118→
+   119→Later currently organizes its workflow around planning, approvals, publishing, engagement and analytics. Buffer similarly combines publishing, community engagement, insights and team collaboration. These are useful product patterns to study.
+   120→
+   121→Create a superior original product.
+   122→
+   123→---
+   124→
+   125→# 4. PREMIUM UI / UX DIRECTION
+   126→
+   127→The application must look like a premium next-generation desktop SaaS application inspired by the elegance and refinement of modern macOS.
+   128→
+   129→Do NOT copy Apple proprietary interfaces.
+   130→
+   131→Use an original design language with:
+   132→
+   133→* premium glass surfaces
+   134→* subtle translucency
+   135→* refined shadows
+   136→* elegant borders
+   137→* excellent spacing
+   138→* high-quality typography
+   139→* sophisticated cards
+   140→* subtle depth
+   141→* smooth transitions
+   142→* restrained animations
+   143→* excellent dark mode
+   144→* excellent light mode
+   145→* Retina-quality visual assets
+   146→* responsive layouts
+   147→* keyboard-first interaction
+   148→
+   149→The design must feel:
+   150→
+   151→**premium + calm + powerful + professional + modern + trustworthy**
+   152→
+   153→Avoid:
+   154→
+   155→* generic Bootstrap dashboards
+   156→* excessive gradients
+   157→* neon colors
+   158→* giant cards
+   159→* unnecessary animations
+   160→* clutter
+   161→* excessive rounded containers
+   162→* low-quality icons
+   163→* inconsistent spacing
+   164→
+   165→---
+   166→
+   167→# 5. APPLICATION SHELL
+   168→
+   169→Create a persistent application shell.
+   170→
+   171→## Left Sidebar
+   172→
+   173→Dashboard
+   174→Tasks
+   175→Calendar
+   176→Composer
+   177→Content Library
+   178→Social Accounts
+   179→Inbox
+   180→Analytics
+   181→Reports
+   182→Approvals
+   183→Team
+   184→Mail Center
+   185→Notifications
+   186→Audit Logs
+   187→Settings
+   188→
+   189→Bottom:
+   190→
+   191→* User avatar
+   192→* Name
+   193→* Role
+   194→* Workspace
+   195→* Account switcher
+   196→* Help
+   197→* Logout
+   198→
+   199→Sidebar features:
+   200→
+   201→* expanded
+   202→* collapsed
+   203→* responsive drawer
+   204→* keyboard navigation
+   205→
+   206→---
+   207→
+   208→# 6. COMMAND PALETTE
+   209→
+   210→Implement:
+   211→
+   212→**CTRL/CMD + K**
+   213→
+   214→Command palette actions:
+   215→
+   216→* Search
+   217→* Open account
+   218→* Create post
+   219→* Create task
+   220→* Open calendar
+   221→* Open analytics
+   222→* Connect account
+   223→* Create mailbox
+   224→* View notifications
+   225→* Switch workspace
+   226→* Open settings
+   227→
+   228→---
+   229→
+   230→# 7. AUTHENTICATION
+   231→
+   232→Implement secure authentication.
+   233→
+   234→Support:
+   235→
+   236→* email/password
+   237→* MFA
+   238→* password reset
+   239→* session management
+   240→* session revocation
+   241→* login history
+   242→* device/session management
+   243→* secure cookies
+   244→* session rotation
+   245→
+   246→Never store third-party social passwords.
+   247→
+   248→Use OAuth for social platforms wherever supported.
+   249→
+   250→---
+   251→
+   252→# 8. ROLE-BASED ACCESS CONTROL
+   253→
+   254→Roles:
+   255→
+   256→### SUPER ADMIN
+   257→
+   258→Everything.
+   259→
+   260→### ADMIN
+   261→
+   262→Organization and system administration.
+   263→
+   264→### MANAGER
+   265→
+   266→Team, tasks, approvals and operational management.
+   267→
+   268→### EDITOR
+   269→
+   270→Content creation.
+   271→
+   272→### PUBLISHER
+   273→
+   274→Publishing.
+   275→
+   276→### MODERATOR
+   277→
+   278→Comments/community management.
+   279→
+   280→### ANALYST
+   281→
+   282→Analytics and reports.
+   283→
+   284→### MAIL ADMIN
+   285→
+   286→Organization email management.
+   287→
+   288→### VIEWER
+   289→
+   290→Read-only.
+   291→
+   292→Implement granular permissions rather than relying only on roles.
+   293→
+   294→All permissions must be enforced server-side.
+   295→
+   296→---
+   297→
+   298→# 9. WORKSPACE ARCHITECTURE
+   299→
+   300→Support multiple workspaces.
+   301→
+   302→Structure:
+   303→
+   304→Organization
+   305→→ Workspace
+   306→→ Projects
+   307→→ Teams
+   308→→ Social Accounts
+   309→→ Content
+   310→→ Tasks
+   311→→ Reports
+   312→→ Mail identities
+   313→
+   314→Workspace isolation is mandatory.
+   315→
+   316→Users must never see data from unauthorized workspaces.
+   317→
+   318→---
+   319→
+   320→# 10. MAIN DASHBOARD
+   321→
+   322→Create an intelligent operational dashboard.
+   323→
+   324→## KPI cards
+   325→
+   326→* Connected Accounts
+   327→* Active Accounts
+   328→* Accounts Requiring Attention
+   329→* Scheduled Posts
+   330→* Pending Tasks
+   331→* Awaiting Approval
+   332→* Published Today
+   333→* Failed Publications
+   334→* Unread Comments
+   335→* Team Activity
+   336→* Mailboxes
+   337→* Mail Delivery Health
+   338→
+   339→## Account Status
+   340→
+   341→Show:
+   342→
+   343→* platform
+   344→* account
+   345→* status
+   346→* connection
+   347→* API health
+   348→* last sync
+   349→* warnings
+   350→* permission state
+   351→
+   352→---
+   353→
+   354→# 11. ACCOUNT HEALTH
+   355→
+   356→Do NOT claim to predict the exact date/time an account will be suspended.
+   357→
+   358→Instead implement:
+   359→
+   360→## Operational Account Health
+   361→
+   362→Statuses:
+   363→
+   364→GREEN — Healthy
+   365→YELLOW — Attention Required
+   366→ORANGE — Restricted/Warning
+   367→RED — Connection/Platform Action
+   368→
+   369→Health signals may include:
+   370→
+   371→* API warnings
+   372→* provider restrictions
+   373→* authentication problems
+   374→* failed publications
+   375→* rate-limit events
+   376→* permission changes
+   377→* rejected content
+   378→* synchronization failures
+   379→* token expiration
+   380→
+   381→Every health score/status must be explainable.
+   382→
+   383→Example:
+   384→
+   385→> Attention Required — OAuth token expires in 3 days.
+   386→
+   387→Never fabricate:
+   388→
+   389→> "Account will be suspended in 5 days."
+   390→
+   391→---
+   392→
+   393→# 12. SOCIAL ACCOUNT MANAGEMENT
+   394→
+   395→Create:
+   396→
+   397→**Social Accounts → All Accounts**
+   398→
+   399→Supported architecture should be extensible for:
+   400→
+   401→* Facebook Pages
+   402→* Instagram Business/Creator
+   403→* X
+   404→* LinkedIn Pages
+   405→* TikTok
+   406→* YouTube
+   407→* Threads
+   408→* Pinterest
+   409→* future providers
+   410→
+   411→Capabilities differ by provider and account type.
+   412→
+   413→Do not assume every platform supports identical features.
+   414→
+   415→Current third-party platforms also document meaningful differences by channel/account type—for example, Buffer distinguishes publishing, analytics and engagement capabilities across Facebook Pages, Instagram professional accounts and X.
+   416→
+   417→---
+   418→
+   419→# 13. PROVIDER ADAPTER ARCHITECTURE
+   420→
+   421→Create:
+   422→
+   423→```text
+   424→SocialProvider
+   425→├── FacebookAdapter
+   426→├── InstagramAdapter
+   427→├── XAdapter
+   428→├── LinkedInAdapter
+   429→├── TikTokAdapter
+   430→├── YouTubeAdapter
+   431→├── ThreadsAdapter
+   432→└── PinterestAdapter
+   433→```
+   434→
+   435→Each adapter should expose capability metadata:
+   436→
+   437→```text
+   438→publishing
+   439→scheduling
+   440→analytics
+   441→comments
+   442→replies
+   443→media
+   444→video
+   445→stories
+   446→reels
+   447→webhooks
+   448→```
+   449→
+   450→The UI must dynamically adapt according to provider capabilities.
+   451→
+   452→---
+   453→
+   454→# 14. OAUTH CONNECTION
+   455→
+   456→Flow:
+   457→
+   458→Connect Account
+   459→↓
+   460→Provider Authorization
+   461→↓
+   462→Authorization Code
+   463→↓
+   464→Secure Server-Side Exchange
+   465→↓
+   466→Encrypted Credential Storage
+   467→↓
+   468→Permission Validation
+   469→↓
+   470→Account Discovery
+   471→↓
+   472→Connected
+   473→
+   474→Never store provider passwords.
+   475→
+   476→Never expose OAuth tokens to frontend code.
+   477→
+   478→Encrypt credentials at rest.
+   479→
+   480→---
+   481→
+   482→# 15. ACCOUNT DETAIL PAGE
+   483→
+   484→Tabs:
+   485→
+   486→Overview
+   487→Posts
+   488→Analytics
+   489→Audience
+   490→Comments
+   491→Activity
+   492→Connection
+   493→Health
+   494→Permissions
+   495→
+   496→Display:
+   497→
+   498→* avatar
+   499→* account name
+   500→* username
+   501→* platform
+   502→* account ID
+   503→* connection status
+   504→* token status
+   505→* permissions
+   506→* follower count
+   507→* reach
+   508→* impressions
+   509→* engagement
+   510→* recent posts
+   511→* comments
+   512→* warnings
+   513→* API errors
+   514→* synchronization status
+   515→
+   516→---
+   517→
+   518→# 16. CONTENT LIBRARY
+   519→
+   520→Create enterprise media management.
+   521→
+   522→Support:
+   523→
+   524→* images
+   525→* videos
+   526→* GIFs
+   527→* documents
+   528→* captions
+   529→* reusable posts
+   530→* folders
+   531→* tags
+   532→* favorites
+   533→* search
+   534→* filtering
+   535→* archive
+   536→
+   537→Media metadata:
+   538→
+   539→* filename
+   540→* dimensions
+   541→* size
+   542→* type
+   543→* uploader
+   544→* date
+   545→* tags
+   546→* project
+   547→* usage history
+   548→
+   549→Add drag-and-drop upload.
+   550→
+   551→Add previews.
+   552→
+   553→---
+   554→
+   555→# 17. ADVANCED COMPOSER
+   556→
+   557→Create a premium three-column composer.
+   558→
+   559→### LEFT
+   560→
+   561→Media library.
+   562→
+   563→### CENTER
+   564→
+   565→Post editor.
+   566→
+   567→### RIGHT
+   568→
+   569→Selected accounts
+   570→Preview
+   571→Scheduling
+   572→Approval status
+   573→
+   574→Allow multi-account selection where the provider supports it.
+   575→
+   576→Example:
+   577→
+   578→☑ Facebook Page A
+   579→☑ Facebook Page B
+   580→☑ Instagram A
+   581→☑ X Account A
+   582→
+   583→---
+   584→
+   585→# 18. PLATFORM-SPECIFIC CONTENT
+   586→
+   587→Provide:
+   588→
+   589→Common Content
+   590→
+   591→plus:
+   592→
+   593→Facebook Override
+   594→Instagram Override
+   595→X Override
+   596→LinkedIn Override
+   597→etc.
+   598→
+   599→Each provider must have its own validation.
+   600→
+   601→Validate:
+   602→
+   603→* character limit
+   604→* media format
+   605→* dimensions
+   606→* video duration
+   607→* file size
+   608→* supported post type
+   609→* API capability
+   610→* account permissions
+   611→
+   612→---
+   613→
+   614→# 19. DUPLICATE-CONTENT GOVERNANCE
+   615→
+   616→Before multi-account publication:
+   617→
+   618→Calculate content similarity.
+   619→
+   620→Detect:
+   621→
+   622→* identical captions
+   623→* substantially similar captions
+   624→* repeated media
+   625→* repeated URLs
+   626→* repetitive hashtags
+   627→
+   628→Show warning where appropriate.
+   629→
+   630→Do not automatically bypass or disguise repeated content.
+   631→
+   632→X's current automation rules explicitly prohibit spammy automation and duplicative/substantially similar posts across multiple accounts.
+   633→
+   634→Therefore the system must implement **compliance warnings and human review**, not evasion.
+   635→
+   636→---
+   637→
+   638→# 20. PUBLISHING ENGINE
+   639→
+   640→Architecture:
+   641→
+   642→```text
+   643→Post
+   644→ ↓
+   645→Validation
+   646→ ↓
+   647→Approval
+   648→ ↓
+   649→Queue
+   650→ ↓
+   651→Provider Adapter
+   652→ ↓
+   653→Official API
+   654→ ↓
+   655→Result
+   656→ ↓
+   657→Metrics Sync
+   658→```
+   659→
+   660→Statuses:
+   661→
+   662→DRAFT
+   663→AWAITING_APPROVAL
+   664→APPROVED
+   665→SCHEDULED
+   666→QUEUED
+   667→PUBLISHING
+   668→PUBLISHED
+   669→PARTIALLY_PUBLISHED
+   670→FAILED
+   671→CANCELLED
+   672→
+   673→Every publication attempt must have a unique ID.
+   674→
+   675→Store:
+   676→
+   677→* account
+   678→* provider
+   679→* post
+   680→* timestamp
+   681→* scheduled time
+   682→* execution time
+   683→* status
+   684→* provider post ID
+   685→* response
+   686→* error
+   687→* retry count
+   688→
+   689→---
+   690→
+   691→# 21. SMART QUEUE
+   692→
+   693→Build a durable background publishing queue.
+   694→
+   695→Requirements:
+   696→
+   697→* idempotency
+   698→* safe retry
+   699→* exponential backoff
+   700→* provider-aware rate limits
+   701→* concurrency control
+   702→* failure recovery
+   703→* dead-letter queue
+   704→* observability
+   705→
+   706→If provider rate limit is reached:
+   707→
+   708→**WAIT → RESPECT RESET → RETRY**
+   709→
+   710→Never use IP/proxy rotation to bypass rate limits.
+   711→
+   712→---
+   713→
+   714→# 22. IP / NETWORK REQUIREMENT
+   715→
+   716→Do NOT implement an IP changer for suspension/rate-limit avoidance.
+   717→
+   718→Instead build:
+   719→
+   720→## Network & Operations Center
+   721→
+   722→Display:
+   723→
+   724→* connectivity status
+   725→* API latency
+   726→* provider status
+   727→* request errors
+   728→* rate-limit events
+   729→* account/session activity
+   730→* network diagnostics for authorized administrators
+   731→
+   732→Do NOT implement:
+   733→
+   734→* IP rotation
+   735→* proxy rotation
+   736→* VPN rotation for enforcement evasion
+   737→* fingerprint spoofing
+   738→* CAPTCHA bypass
+   739→
+   740→---
+   741→
+   742→# 23. CONTENT CALENDAR
+   743→
+   744→Views:
+   745→
+   746→* Month
+   747→* Week
+   748→* Day
+   749→* List
+   750→
+   751→Filters:
+   752→
+   753→* platform
+   754→* account
+   755→* project
+   756→* team member
+   757→* status
+   758→* content type
+   759→
+   760→Actions:
+   761→
+   762→* drag/drop
+   763→* reschedule
+   764→* duplicate
+   765→* edit
+   766→* preview
+   767→* cancel
+   768→* approve
+   769→
+   770→Timezone aware.
+   771→
+   772→---
+   773→
+   774→# 24. TASK MANAGEMENT
+   775→
+   776→Create professional task management.
+   777→
+   778→Fields:
+   779→
+   780→* title
+   781→* description
+   782→* creator
+   783→* assignee
+   784→* reviewer
+   785→* priority
+   786→* deadline
+   787→* status
+   788→* project
+   789→* account
+   790→* platform
+   791→* content
+   792→* attachments
+   793→* comments
+   794→
+   795→Statuses:
+   796→
+   797→NEW
+   798→ASSIGNED
+   799→IN_PROGRESS
+   800→REVIEW
+   801→APPROVED
+   802→COMPLETED
+   803→BLOCKED
+   804→
+   805→Dashboard:
+   806→
+   807→My Tasks
+   808→New
+   809→Pending
+   810→Due Today
+   811→Overdue
+   812→Completed
+   813→
+   814→---
+   815→
+   816→# 25. ADMIN TASK CONTROL
+   817→
+   818→Admins can:
+   819→
+   820→* create
+   821→* assign
+   822→* reassign
+   823→* prioritize
+   824→* set deadline
+   825→* attach accounts
+   826→* attach content
+   827→* require approval
+   828→* monitor
+   829→* reopen
+   830→* cancel
+   831→
+   832→Create workload visualization.
+   833→
+   834→---
+   835→
+   836→# 26. APPROVAL WORKFLOW
+   837→
+   838→Support:
+   839→
+   840→Editor
+   841→↓
+   842→Manager
+   843→↓
+   844→Approver
+   845→↓
+   846→Publisher
+   847→↓
+   848→Scheduled
+   849→↓
+   850→Published
+   851→
+   852→Configurable:
+   853→
+   854→* one-step approval
+   855→* two-step
+   856→* multi-step
+   857→
+   858→Every approval action must be audited.
+   859→
+   860→Later's current team workflow also emphasizes in-product approvals, permissions and shared calendars; use this as a workflow reference, not as a UI copy target.
+   861→
+   862→---
+   863→
+   864→# 27. UNIFIED INBOX
+   865→
+   866→Where provider APIs permit, aggregate:
+   867→
+   868→* comments
+   869→* replies
+   870→* mentions
+   871→* supported messages
+   872→
+   873→Display:
+   874→
+   875→* platform
+   876→* account
+   877→* post
+   878→* user
+   879→* message
+   880→* timestamp
+   881→* sentiment classification
+   882→* moderation state
+   883→* assigned staff member
+   884→
+   885→Filters:
+   886→
+   887→* unread
+   888→* unanswered
+   889→* replied
+   890→* positive
+   891→* negative
+   892→* priority
+   893→* platform
+   894→* account
+   895→
+   896→---
+   897→
+   898→# 28. COMMENT MODERATION
+   899→
+   900→Authorized users may:
+   901→
+   902→* reply
+   903→* mark resolved
+   904→* assign
+   905→* add internal notes
+   906→* hide where officially supported
+   907→* report where officially supported
+   908→
+   909→Never create mass-reporting functionality.
+   910→
+   911→Never automatically target opposing users.
+   912→
+   913→---
+   914→
+   915→# 29. SENTIMENT ANALYSIS
+   916→
+   917→Sentiment classification may be used as an operational aid.
+   918→
+   919→Categories:
+   920→
+   921→Positive
+   922→Neutral
+   923→Negative
+   924→Mixed
+   925→Unknown
+   926→
+   927→Clearly label it as machine-generated.
+   928→
+   929→Do not use sentiment analysis to infer sensitive personal traits or to build political persuasion profiles.
+   930→
+   931→---
+   932→
+   933→# 30. ANALYTICS ENGINE
+   934→
+   935→Normalize provider metrics.
+   936→
+   937→## ACCOUNT METRICS
+   938→
+   939→* followers
+   940→* follower growth
+   941→* reach
+   942→* impressions
+   943→* profile views
+   944→* engagement
+   945→* engagement rate
+   946→
+   947→## POST METRICS
+   948→
+   949→* likes
+   950→* comments
+   951→* shares
+   952→* saves
+   953→* views
+   954→* reach
+   955→* impressions
+   956→* clicks
+   957→
+   958→## VIDEO
+   959→
+   960→* views
+   961→* watch time
+   962→* completion
+   963→* average duration
+   964→
+   965→Only display metrics actually supplied by the provider.
+   966→
+   967→Never fabricate missing metrics.
+   968→
+   969→---
+   970→
+   971→# 31. POST ANALYTICS
+   972→
+   973→Every published post has:
+   974→
+   975→Overview
+   976→Performance
+   977→Engagement
+   978→Reach
+   979→Impressions
+   980→Comments
+   981→Shares
+   982→Clicks
+   983→Follower Impact
+   984→
+   985→Charts:
+   986→
+   987→* engagement over time
+   988→* reach
+   989→* impressions
+   990→* comments
+   991→* shares
+   992→
+   993→---
+   994→
+   995→# 32. ACCOUNT ANALYTICS
+   996→
+   997→Date ranges:
+   998→
+   999→7 days
+  1000→30 days
+  1001→90 days
+  1002→6 months
+  1003→12 months
+  1004→Custom
+  1005→
+  1006→Charts:
+  1007→
+  1008→* follower growth
+  1009→* reach
+  1010→* engagement
+  1011→* publishing frequency
+  1012→* top posts
+  1013→* engagement trend
+  1014→
+  1015→---
+  1016→
+  1017→# 33. CROSS-PLATFORM ANALYTICS
+  1018→
+  1019→Aggregate:
+  1020→
+  1021→* published posts
+  1022→* reach
+  1023→* impressions
+  1024→* engagement
+  1025→* comments
+  1026→* follower growth
+  1027→
+  1028→Always show provider/source.
+  1029→
+  1030→Clearly distinguish metrics whose definitions differ between providers.
+  1031→
+  1032→---
+  1033→
+  1034→# 34. TEAM PERFORMANCE
+  1035→
+  1036→Track operational metrics:
+  1037→
+  1038→* tasks assigned
+  1039→* tasks completed
+  1040→* overdue
+  1041→* average completion time
+  1042→* approval turnaround
+  1043→* publishing failures
+  1044→* moderation workload
+  1045→* content production volume
+  1046→
+  1047→Do not create employee rankings based on political persuasion or influence.
+  1048→
+  1049→---
+  1050→
+  1051→# 35. REPORT BUILDER
+  1052→
+  1053→Reports:
+  1054→
+  1055→* account performance
+  1056→* post performance
+  1057→* follower growth
+  1058→* reach
+  1059→* engagement
+  1060→* publishing activity
+  1061→* team operations
+  1062→* account health
+  1063→* API health
+  1064→* mail health
+  1065→
+  1066→Exports:
+  1067→
+  1068→PDF
+  1069→CSV
+  1070→XLSX
+  1071→
+  1072→---
+  1073→
+  1074→# 36. NOTIFICATION CENTER
+  1075→
+  1076→Notify users about:
+  1077→
+  1078→* new task
+  1079→* assignment
+  1080→* deadline
+  1081→* approval request
+  1082→* approval result
+  1083→* successful publication
+  1084→* failed publication
+  1085→* expired OAuth
+  1086→* provider warning
+  1087→* rate limit
+  1088→* sync failure
+  1089→* mail security event
+  1090→
+  1091→---
+  1092→
+  1093→# 37. AUDIT LOG
+  1094→
+  1095→Every sensitive action must be recorded.
+  1096→
+  1097→Examples:
+  1098→
+  1099→LOGIN
+  1100→LOGOUT
+  1101→ACCOUNT_CONNECTED
+  1102→ACCOUNT_DISCONNECTED
+  1103→POST_CREATED
+  1104→POST_EDITED
+  1105→POST_APPROVED
+  1106→POST_REJECTED
+  1107→POST_SCHEDULED
+  1108→POST_PUBLISHED
+  1109→POST_FAILED
+  1110→TASK_CREATED
+  1111→TASK_ASSIGNED
+  1112→TASK_COMPLETED
+  1113→PERMISSION_CHANGED
+  1114→MAILBOX_CREATED
+  1115→MAILBOX_DISABLED
+  1116→DOMAIN_CHANGED
+  1117→SECURITY_SETTING_CHANGED
+  1118→
+  1119→Audit logs must be immutable.
+  1120→
+  1121→---
+  1122→
+  1123→# 38. ORGANIZATION MAIL INFRASTRUCTURE
+  1124→
+  1125→Add a complete:
+  1126→
+  1127→# MAIL CENTER
+  1128→
+  1129→The organization should be able to connect its own domain and mail infrastructure.
+  1130→
+  1131→Example:
+  1132→
+  1133→[staff01@organization.com](mailto:staff01@organization.com)
+  1134→[manager@organization.com](mailto:manager@organization.com)
+  1135→[operations@organization.com](mailto:operations@organization.com)
+  1136→[support@organization.com](mailto:support@organization.com)
+  1137→
+  1138→The system should provide centralized mailbox administration.
+  1139→
+  1140→---
+  1141→
+  1142→# 39. MAIL PROVIDER ARCHITECTURE
+  1143→
+  1144→Create:
+  1145→
+  1146→```text
+  1147→MailProvider
+  1148→├── SelfHostedMailAdapter
+  1149→├── SMTPAdapter
+  1150→├── IMAPAdapter
+  1151→└── FutureProviderAdapters
+  1152→```
+  1153→
+  1154→Do not hard-code the application to a single mail server.
+  1155→
+  1156→---
+  1157→
+  1158→# 40. DOMAIN MANAGEMENT
+  1159→
+  1160→Admin can:
+  1161→
+  1162→* add domain
+  1163→* verify domain
+  1164→* check DNS
+  1165→* verify MX
+  1166→* verify SPF
+  1167→* verify DKIM
+  1168→* verify DMARC
+  1169→* verify TLS
+  1170→* check rDNS/PTR
+  1171→* monitor mail-server health
+  1172→
+  1173→Status:
+  1174→
+  1175→CONFIGURED
+  1176→VERIFIED
+  1177→HEALTHY
+  1178→WARNING
+  1179→FAILED
+  1180→
+  1181→Never mark something verified without an actual check.
+  1182→
+  1183→---
+  1184→
+  1185→# 41. MAILBOX CREATION
+  1186→
+  1187→Create mailbox:
+  1188→
+  1189→Display Name
+  1190→First Name
+  1191→Last Name
+  1192→Username
+  1193→Domain
+  1194→Password
+  1195→Quota
+  1196→Department
+  1197→Role
+  1198→Status
+  1199→
+  1200→Optional:
+  1201→
+  1202→* forwarding
+  1203→* recovery address
+  1204→* auto reply
+  1205→
+  1206→Validate:
+  1207→
+  1208→* username
+  1209→* duplicate address
+  1210→* domain
+  1211→* password
+  1212→* quota
+  1213→
+  1214→---
+  1215→
+  1216→# 42. MAILBOX MANAGEMENT
+  1217→
+  1218→Admin can:
+  1219→
+  1220→* create
+  1221→* edit
+  1222→* disable
+  1223→* enable
+  1224→* suspend
+  1225→* reset password
+  1226→* change quota
+  1227→* delete
+  1228→* view activity
+  1229→
+  1230→Statuses:
+  1231→
+  1232→ACTIVE
+  1233→DISABLED
+  1234→SUSPENDED
+  1235→PENDING
+  1236→DELETED
+  1237→
+  1238→---
+  1239→
+  1240→# 43. MAIL ALIASES
+  1241→
+  1242→Support:
+  1243→
+  1244→info@
+  1245→support@
+  1246→sales@
+  1247→operations@
+  1248→
+  1249→Aliases may route to authorized mailboxes.
+  1250→
+  1251→---
+  1252→
+  1253→# 44. DISTRIBUTION GROUPS
+  1254→
+  1255→Example:
+  1256→
+  1257→[social-team@organization.com](mailto:social-team@organization.com)
+  1258→
+  1259→Members:
+  1260→
+  1261→member1@
+  1262→member2@
+  1263→member3@
+  1264→
+  1265→Support:
+  1266→
+  1267→* group creation
+  1268→* member management
+  1269→* permissions
+  1270→* delivery settings
+  1271→
+  1272→---
+  1273→
+  1274→# 45. WEBMAIL
+  1275→
+  1276→Provide:
+  1277→
+  1278→**Open Webmail**
+  1279→
+  1280→Integrate with the selected organization mail system.
+  1281→
+  1282→Do not expose mailbox passwords.
+  1283→
+  1284→Where supported, implement secure SSO/delegated authentication.
+  1285→
+  1286→---
+  1287→
+  1288→# 46. SMTP / IMAP
+  1289→
+  1290→Securely configure:
+  1291→
+  1292→SMTP
+  1293→IMAP
+  1294→
+  1295→Store:
+  1296→
+  1297→* host
+  1298→* port
+  1299→* TLS
+  1300→* username
+  1301→* encrypted credential
+  1302→
+  1303→Never expose credentials in frontend/API/logs.
+  1304→
+  1305→---
+  1306→
+  1307→# 47. MAIL DELIVERY MONITORING
+  1308→
+  1309→Dashboard:
+  1310→
+  1311→Sent
+  1312→Delivered
+  1313→Deferred
+  1314→Bounced
+  1315→Rejected
+  1316→Failed
+  1317→
+  1318→Display:
+  1319→
+  1320→* timestamp
+  1321→* sender
+  1322→* destination
+  1323→* status
+  1324→* error code
+  1325→* provider response
+  1326→
+  1327→Avoid storing unnecessary message bodies.
+  1328→
+  1329→---
+  1330→
+  1331→# 48. MAIL SECURITY
+  1332→
+  1333→Implement:
+  1334→
+  1335→* SPF
+  1336→* DKIM
+  1337→* DMARC
+  1338→* TLS
+  1339→* rDNS/PTR
+  1340→* MFA
+  1341→* login protection
+  1342→* brute-force protection
+  1343→* rate limits
+  1344→* suspicious activity monitoring
+  1345→* session management
+  1346→
+  1347→---
+  1348→
+  1349→# 49. MAIL ABUSE PROTECTION
+  1350→
+  1351→Implement:
+  1352→
+  1353→* per-mailbox sending limits
+  1354→* domain-level limits
+  1355→* anomaly detection
+  1356→* bounce monitoring
+  1357→* temporary outbound suspension
+  1358→* alerts
+  1359→
+  1360→The purpose is legitimate organizational communication.
+  1361→
+  1362→Do not build spam-filter bypassing or mass unsolicited-email functionality.
+  1363→
+  1364→---
+  1365→
+  1366→# 50. MAIL QUOTAS
+  1367→
+  1368→Support:
+  1369→
+  1370→5 GB
+  1371→10 GB
+  1372→25 GB
+  1373→50 GB
+  1374→Custom
+  1375→
+  1376→Show:
+  1377→
+  1378→Used
+  1379→Available
+  1380→Limit
+  1381→
+  1382→Alerts:
+  1383→
+  1384→80%
+  1385→90%
+  1386→
+  1387→---
+  1388→
+  1389→# 51. MAIL ADMIN DASHBOARD
+  1390→
+  1391→Show:
+  1392→
+  1393→Total Mailboxes
+  1394→Active
+  1395→Disabled
+  1396→Storage Used
+  1397→Storage Available
+  1398→Sent
+  1399→Delivered
+  1400→Bounce Rate
+  1401→Security Warnings
+  1402→Domain Health
+  1403→
+  1404→---
+  1405→
+  1406→# 52. USER ↔ MAIL IDENTITY
+  1407→
+  1408→Allow admin to create:
+  1409→
+  1410→Application User
+  1411→+
+  1412→Organization Mailbox
+  1413→
+  1414→Example:
+  1415→
+  1416→User:
+  1417→Ahmed Khan
+  1418→
+  1419→Email:
+  1420→[ahmed@organization.com](mailto:ahmed@organization.com)
+  1421→
+  1422→Keep application identity and mailbox identity logically separate but linked.
+  1423→
+  1424→Deleting an application user must NOT automatically delete the mailbox without explicit confirmation.
+  1425→
+  1426→---
+  1427→
+  1428→# 53. MAIL PERMISSIONS
+  1429→
+  1430→Add:
+  1431→
+  1432→mail.domain.view
+  1433→mail.domain.manage
+  1434→mail.mailbox.view
+  1435→mail.mailbox.create
+  1436→mail.mailbox.edit
+  1437→mail.mailbox.disable
+  1438→mail.mailbox.delete
+  1439→mail.alias.manage
+  1440→mail.group.manage
+  1441→mail.security.view
+  1442→mail.security.manage
+  1443→mail.audit.view
+  1444→
+  1445→---
+  1446→
+  1447→# 54. MAIL HEALTH
+  1448→
+  1449→Create:
+  1450→
+  1451→Mail Infrastructure Health
+  1452→
+  1453→Display:
+  1454→
+  1455→Domain
+  1456→MX
+  1457→SPF
+  1458→DKIM
+  1459→DMARC
+  1460→TLS
+  1461→rDNS
+  1462→SMTP
+  1463→IMAP
+  1464→Storage
+  1465→Queue
+  1466→Delivery
+  1467→Bounce Rate
+  1468→
+  1469→---
+  1470→
+  1471→# 55. DATABASE ARCHITECTURE
+  1472→
+  1473→Create a relational schema.
+  1474→
+  1475→Core entities:
+  1476→
+  1477→```text
+  1478→Organization
+  1479→Workspace
+  1480→User
+  1481→Role
+  1482→Permission
+  1483→WorkspaceMember
+  1484→Project
+  1485→
+  1486→SocialProvider
+  1487→SocialAccount
+  1488→SocialConnection
+  1489→OAuthCredential
+  1490→
+  1491→MediaAsset
+  1492→ContentItem
+  1493→Post
+  1494→PostTarget
+  1495→PostVariant
+  1496→Schedule
+  1497→PublicationAttempt
+  1498→
+  1499→Task
+  1500→TaskComment
+  1501→Approval
+  1502→ApprovalStep
+  1503→
+  1504→Comment
+  1505→ModerationAction
+  1506→
+  1507→AccountHealthEvent
+  1508→PlatformWarning
+  1509→
+  1510→AnalyticsSnapshot
+  1511→PostMetric
+  1512→AccountMetric
+  1513→AudienceMetric
+  1514→
+  1515→Notification
+  1516→AuditLog
+  1517→WebhookEvent
+  1518→ApiRequestLog
+  1519→
+  1520→Report
+  1521→ReportSchedule
+  1522→
+  1523→MailDomain
+  1524→MailProvider
+  1525→MailServer
+  1526→Mailbox
+  1527→MailboxAlias
+  1528→MailGroup
+  1529→MailGroupMember
+  1530→MailCredential
+  1531→MailDeliveryEvent
+  1532→MailSecurityEvent
+  1533→MailAuditLog
+  1534→MailQuota
+  1535→```
+  1536→
+  1537→Use:
+  1538→
+  1539→* foreign keys
+  1540→* proper indexes
+  1541→* soft deletion where appropriate
+  1542→* migrations
+  1543→* transaction integrity
+  1544→
+  1545→---
+  1546→
+  1547→# 56. BACKGROUND WORKERS
+  1548→
+  1549→Use durable workers for:
+  1550→
+  1551→* scheduled posts
+  1552→* analytics synchronization
+  1553→* comments synchronization
+  1554→* account health checks
+  1555→* token expiration
+  1556→* report generation
+  1557→* mail health checks
+  1558→* mail delivery events
+  1559→* notifications
+  1560→
+  1561→Workers must be:
+  1562→
+  1563→* idempotent
+  1564→* retryable
+  1565→* observable
+  1566→* horizontally scalable
+  1567→
+  1568→---
+  1569→
+  1570→# 57. WEBHOOKS
+  1571→
+  1572→Where providers support them:
+  1573→
+  1574→* validate signature
+  1575→* validate timestamp
+  1576→* deduplicate event IDs
+  1577→* process asynchronously
+  1578→* store event
+  1579→* audit event
+  1580→
+  1581→---
+  1582→
+  1583→# 58. OBSERVABILITY
+  1584→
+  1585→Build:
+  1586→
+  1587→* application logs
+  1588→* API logs
+  1589→* provider errors
+  1590→* worker metrics
+  1591→* queue metrics
+  1592→* database metrics
+  1593→* sync status
+  1594→* latency
+  1595→* error rates
+  1596→* mail delivery status
+  1597→
+  1598→Create an Admin System Health page.
+  1599→
+  1600→---
+  1601→
+  1602→# 59. SEARCH
+  1603→
+  1604→Global search:
+  1605→
+  1606→Accounts
+  1607→Posts
+  1608→Tasks
+  1609→Comments
+  1610→Media
+  1611→Users
+  1612→Reports
+  1613→Mailboxes
+  1614→
+  1615→Support:
+  1616→
+  1617→* fuzzy search
+  1618→* filters
+  1619→* date range
+  1620→* platform
+  1621→* status
+  1622→
+  1623→---
+  1624→
+  1625→# 60. SECURITY ARCHITECTURE
+  1626→
+  1627→Mandatory:
+  1628→
+  1629→* encryption at rest
+  1630→* encryption in transit
+  1631→* secure cookies
+  1632→* CSRF protection
+  1633→* XSS protection
+  1634→* SQL injection protection
+  1635→* RBAC
+  1636→* MFA
+  1637→* rate limiting
+  1638→* secure sessions
+  1639→* OAuth token encryption
+  1640→* secret management
+  1641→* webhook verification
+  1642→* audit logs
+  1643→* backup strategy
+  1644→
+  1645→Never expose:
+  1646→
+  1647→* OAuth secrets
+  1648→* SMTP passwords
+  1649→* DKIM private keys
+  1650→* internal credentials
+  1651→* database passwords
+  1652→
+  1653→---
+  1654→
+  1655→# 61. PRIVACY
+  1656→
+  1657→Implement:
+  1658→
+  1659→* least privilege
+  1660→* data minimization
+  1661→* secure deletion
+  1662→* access control
+  1663→* auditability
+  1664→* configurable retention
+  1665→* export controls
+  1666→
+  1667→Do not collect unnecessary personal information about commenters or audiences.
+  1668→
+  1669→---
+  1670→
+  1671→# 62. RESPONSIVE DESIGN
+  1672→
+  1673→Desktop:
+  1674→
+  1675→Full command center.
+  1676→
+  1677→Tablet:
+  1678→
+  1679→Condensed workspace.
+  1680→
+  1681→Mobile:
+  1682→
+  1683→Mobile navigation + drawers + task view + notifications.
+  1684→
+  1685→Do not merely shrink desktop components.
+  1686→
+  1687→---
+  1688→
+  1689→# 63. ACCESSIBILITY
+  1690→
+  1691→Target WCAG-compatible practices.
+  1692→
+  1693→Implement:
+  1694→
+  1695→* keyboard navigation
+  1696→* focus states
+  1697→* semantic HTML
+  1698→* labels
+  1699→* screen-reader support
+  1700→* adequate contrast
+  1701→* reduced-motion preference
+  1702→* accessible dialogs
+  1703→
+  1704→---
+  1705→
+  1706→# 64. PERFORMANCE
+  1707→
+  1708→Target:
+  1709→
+  1710→* fast initial load
+  1711→* server-side pagination
+  1712→* virtualized lists
+  1713→* lazy media
+  1714→* cached analytics
+  1715→* background synchronization
+  1716→* optimized database queries
+  1717→* minimal API calls
+  1718→
+  1719→---
+  1720→
+  1721→# 65. API ARCHITECTURE
+  1722→
+  1723→Version APIs:
+  1724→
+  1725→```text
+  1726→/api/v1/auth
+  1727→/api/v1/users
+  1728→/api/v1/workspaces
+  1729→/api/v1/accounts
+  1730→/api/v1/posts
+  1731→/api/v1/tasks
+  1732→/api/v1/calendar
+  1733→/api/v1/analytics
+  1734→/api/v1/comments
+  1735→/api/v1/reports
+  1736→/api/v1/notifications
+  1737→/api/v1/audit
+  1738→/api/v1/mail
+  1739→/api/v1/domains
+  1740→/api/v1/mailboxes
+  1741→```
+  1742→
+  1743→Use:
+  1744→
+  1745→* schema validation
+  1746→* typed responses
+  1747→* consistent errors
+  1748→* authorization middleware
+  1749→* pagination
+  1750→* filtering
+  1751→* sorting
+  1752→
+  1753→---
+  1754→
+  1755→# 66. STANDARD API ERROR
+  1756→
+  1757→Use:
+  1758→
+  1759→```json
+  1760→{
+  1761→  "success": false,
+  1762→  "error": {
+  1763→    "code": "ERROR_CODE",
+  1764→    "message": "Human readable message",
+  1765→    "details": {}
+  1766→  }
+  1767→}
+  1768→```
+  1769→
+  1770→Never expose stack traces.
+  1771→
+  1772→---
+  1773→
+  1774→# 67. PROVIDER CAPABILITY MATRIX
+  1775→
+  1776→Build a capability matrix.
+  1777→
+  1778→Example:
+  1779→
+  1780→| Provider  | Publishing | Analytics | Comments | Video   | Stories | Webhooks |
+  1781→| --------- | ---------- | --------- | -------- | ------- | ------- | -------- |
+  1782→| Facebook  | dynamic    | dynamic   | dynamic  | dynamic | dynamic | dynamic  |
+  1783→| Instagram | dynamic    | dynamic   | dynamic  | dynamic | dynamic | dynamic  |
+  1784→| X         | dynamic    | dynamic   | dynamic  | dynamic | N/A     | dynamic  |
+  1785→| LinkedIn  | dynamic    | dynamic   | dynamic  | dynamic | N/A     | dynamic  |
+  1786→| TikTok    | dynamic    | dynamic   | dynamic  | dynamic | dynamic | dynamic  |
+  1787→
+  1788→Never hard-code unsupported capabilities.
+  1789→
+  1790→---
+  1791→
+  1792→# 68. NO MOCK DATA IN PRODUCTION
+  1793→
+  1794→During development you may use fixtures.
+  1795→
+  1796→But production UI must clearly distinguish:
+  1797→
+  1798→LIVE
+  1799→MOCK
+  1800→SIMULATED
+  1801→UNAVAILABLE
+  1802→
+  1803→Never pretend mock analytics are real.
+  1804→
+  1805→---
+  1806→
+  1807→# 69. REAL INTEGRATION TESTING
+  1808→
+  1809→Never claim an integration is complete until tested against the actual provider environment where credentials and access are available.
+  1810→
+  1811→Clearly report:
+  1812→
+  1813→IMPLEMENTED
+  1814→CONFIGURED
+  1815→CONNECTED
+  1816→LIVE VERIFIED
+  1817→PARTIAL
+  1818→BLOCKED BY PROVIDER
+  1819→NOT AVAILABLE
+  1820→
+  1821→---
+  1822→
+  1823→# 70. TESTING STRATEGY
+  1824→
+  1825→Implement:
+  1826→
+  1827→### Unit
+  1828→
+  1829→Business logic.
+  1830→
+  1831→### Integration
+  1832→
+  1833→Database/API/provider adapters.
+  1834→
+  1835→### Security
+  1836→
+  1837→Auth/RBAC/secrets.
+  1838→
+  1839→### E2E
+  1840→
+  1841→Complete user workflows.
+  1842→
+  1843→### Worker
+  1844→
+  1845→Queue and retry behavior.
+  1846→
+  1847→### Provider
+  1848→
+  1849→OAuth/publishing/analytics.
+  1850→
+  1851→### Mail
+  1852→
+  1853→SMTP/IMAP/domain verification.
+  1854→
+  1855→---
+  1856→
+  1857→# 71. CRITICAL E2E TESTS
+  1858→
+  1859→Test:
+  1860→
+  1861→1. Admin login
+  1862→2. Staff login
+  1863→3. RBAC
+  1864→4. Workspace isolation
+  1865→5. Connect social account
+  1866→6. Disconnect account
+  1867→7. Create content
+  1868→8. Select multiple authorized accounts
+  1869→9. Validate platform-specific content
+  1870→10. Submit approval
+  1871→11. Approve
+  1872→12. Schedule
+  1873→13. Publish
+  1874→14. Handle API failure
+  1875→15. Retry safely
+  1876→16. Sync metrics
+  1877→17. Receive comments
+  1878→18. Moderate
+  1879→19. Create task
+  1880→20. Complete task
+  1881→21. Create mailbox
+  1882→22. Disable mailbox
+  1883→23. Verify domain
+  1884→24. Check mail health
+  1885→25. Audit every action
+  1886→
+  1887→---
+  1888→
+  1889→# 72. FAILURE TESTING
+  1890→
+  1891→Explicitly test:
+  1892→
+  1893→* expired OAuth
+  1894→* revoked permissions
+  1895→* rate limit
+  1896→* provider outage
+  1897→* API timeout
+  1898→* duplicate webhook
+  1899→* partial publication
+  1900→* failed media upload
+  1901→* duplicate publish prevention
+  1902→* worker crash
+  1903→* database transaction failure
+  1904→* SMTP failure
+  1905→* IMAP failure
+  1906→* DNS misconfiguration
+  1907→* bounced email
+  1908→* mailbox quota exceeded
+  1909→
+  1910→---
+  1911→
+  1912→# 73. ADMIN SYSTEM HEALTH
+  1913→
+  1914→Create an enterprise health console.
+  1915→
+  1916→Sections:
+  1917→
+  1918→### Application
+  1919→
+  1920→Healthy
+  1921→Degraded
+  1922→Down
+  1923→
+  1924→### Database
+  1925→
+  1926→Healthy
+  1927→Connection Pool
+  1928→Latency
+  1929→Errors
+  1930→
+  1931→### Workers
+  1932→
+  1933→Running
+  1934→Failed
+  1935→Queued
+  1936→Dead-letter
+  1937→
+  1938→### Social APIs
+  1939→
+  1940→Provider status
+  1941→Latency
+  1942→Errors
+  1943→Rate limits
+  1944→
+  1945→### Mail
+  1946→
+  1947→SMTP
+  1948→IMAP
+  1949→DNS
+  1950→Queue
+  1951→Delivery
+  1952→
+  1953→---
+  1954→
+  1955→# 74. PROJECT PHASES
+  1956→
+  1957→Do not build the entire system blindly in one pass.
+  1958→
+  1959→Execute in phases.
+  1960→
+  1961→## PHASE 0 — DISCOVERY & ARCHITECTURE
+  1962→
+  1963→Deliver:
+  1964→
+  1965→* PRD
+  1966→* architecture
+  1967→* database ERD
+  1968→* provider capability model
+  1969→* security model
+  1970→* permission model
+  1971→* UI information architecture
+  1972→* technical decisions
+  1973→* risks
+  1974→* implementation plan
+  1975→
+  1976→Do not start coding before establishing architecture.
+  1977→
+  1978→---
+  1979→
+  1980→## PHASE 1 — DESIGN SYSTEM
+  1981→
+  1982→Build:
+  1983→
+  1984→* typography
+  1985→* spacing
+  1986→* colors
+  1987→* light mode
+  1988→* dark mode
+  1989→* components
+  1990→* navigation
+  1991→* dashboard shell
+  1992→* responsive framework
+  1993→* command palette
+  1994→
+  1995→---
+  1996→
+  1997→## PHASE 2 — AUTH & ORGANIZATION
+  1998→
+  1999→Build:
+  2000→
+
+[showing lines 1-2000 of 2617; use offset=2001 with limit to continue reading]

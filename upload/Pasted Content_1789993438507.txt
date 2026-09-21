@@ -1,0 +1,2616 @@
+# MASTER BUILD PROMPT
+
+# ENTERPRISE SOCIAL OPERATIONS, PUBLISHING, ANALYTICS & ORGANIZATION COMMUNICATION PLATFORM
+
+## PROJECT CODENAME
+
+**Command Center**
+
+---
+
+# 0. YOUR ROLE
+
+Act as a complete senior product and engineering organization.
+
+You are simultaneously:
+
+* Principal Software Architect
+* Senior Full-Stack Engineer
+* Backend Engineer
+* Frontend Engineer
+* Database Architect
+* DevOps Engineer
+* Security Engineer
+* API Integration Engineer
+* UX/UI Designer
+* QA Engineer
+* Test Automation Engineer
+* Product Manager
+* Technical Writer
+
+You are responsible for designing and implementing a **production-grade enterprise SaaS platform**, not a prototype.
+
+Do not build a collection of disconnected dashboard pages.
+
+Build a coherent, scalable product with:
+
+* strong architecture
+* excellent UX
+* secure authentication
+* role-based permissions
+* reliable background workers
+* official social-platform integrations
+* organization-owned email infrastructure
+* analytics
+* task management
+* approvals
+* auditability
+* observability
+* automated testing
+* production readiness
+
+---
+
+# 1. PRODUCT VISION
+
+Build a centralized **Social Media Operations & Organization Communications Platform** for professional teams managing multiple authorized social-media accounts, content workflows, staff tasks, analytics, community management and organization email infrastructure.
+
+The fundamental workflow is:
+
+**CONNECT → ORGANIZE → CREATE → REVIEW → APPROVE → PUBLISH → MONITOR → ENGAGE → ANALYZE → REPORT**
+
+The platform should eliminate unnecessary manual switching between multiple social-media dashboards.
+
+A team member should be able to log into one secure application and access everything they are authorized to manage.
+
+---
+
+# 2. IMPORTANT COMPLIANCE PRINCIPLE
+
+The platform must use legitimate and documented integration mechanisms.
+
+Use:
+
+* Official APIs
+* OAuth
+* Provider-supported webhooks
+* Provider-supported publishing
+* Provider-supported analytics
+* Provider-supported engagement functionality
+
+Do NOT implement mechanisms intended to:
+
+* bypass platform restrictions
+* evade account suspension
+* bypass rate limits
+* spoof device fingerprints
+* rotate IPs to evade enforcement
+* rotate proxies to evade enforcement
+* bypass CAPTCHAs
+* automate around platform security
+* create fake identities
+* generate artificial engagement
+* mass-report users
+* manipulate trending systems
+* evade spam detection
+
+If a platform rejects an operation:
+
+**STOP → LOG → EXPLAIN → REQUIRE HUMAN REVIEW**
+
+The product must help teams operate efficiently while respecting provider rules.
+
+---
+
+# 3. DESIGN INSPIRATION
+
+Research modern products such as:
+
+* Later
+* Buffer
+* Hootsuite
+* Sprout Social
+* Metricool
+
+Use them for **workflow research and feature inspiration only**.
+
+Do not copy their branding, source code, proprietary UI or visual identity.
+
+Later currently organizes its workflow around planning, approvals, publishing, engagement and analytics. Buffer similarly combines publishing, community engagement, insights and team collaboration. These are useful product patterns to study.
+
+Create a superior original product.
+
+---
+
+# 4. PREMIUM UI / UX DIRECTION
+
+The application must look like a premium next-generation desktop SaaS application inspired by the elegance and refinement of modern macOS.
+
+Do NOT copy Apple proprietary interfaces.
+
+Use an original design language with:
+
+* premium glass surfaces
+* subtle translucency
+* refined shadows
+* elegant borders
+* excellent spacing
+* high-quality typography
+* sophisticated cards
+* subtle depth
+* smooth transitions
+* restrained animations
+* excellent dark mode
+* excellent light mode
+* Retina-quality visual assets
+* responsive layouts
+* keyboard-first interaction
+
+The design must feel:
+
+**premium + calm + powerful + professional + modern + trustworthy**
+
+Avoid:
+
+* generic Bootstrap dashboards
+* excessive gradients
+* neon colors
+* giant cards
+* unnecessary animations
+* clutter
+* excessive rounded containers
+* low-quality icons
+* inconsistent spacing
+
+---
+
+# 5. APPLICATION SHELL
+
+Create a persistent application shell.
+
+## Left Sidebar
+
+Dashboard
+Tasks
+Calendar
+Composer
+Content Library
+Social Accounts
+Inbox
+Analytics
+Reports
+Approvals
+Team
+Mail Center
+Notifications
+Audit Logs
+Settings
+
+Bottom:
+
+* User avatar
+* Name
+* Role
+* Workspace
+* Account switcher
+* Help
+* Logout
+
+Sidebar features:
+
+* expanded
+* collapsed
+* responsive drawer
+* keyboard navigation
+
+---
+
+# 6. COMMAND PALETTE
+
+Implement:
+
+**CTRL/CMD + K**
+
+Command palette actions:
+
+* Search
+* Open account
+* Create post
+* Create task
+* Open calendar
+* Open analytics
+* Connect account
+* Create mailbox
+* View notifications
+* Switch workspace
+* Open settings
+
+---
+
+# 7. AUTHENTICATION
+
+Implement secure authentication.
+
+Support:
+
+* email/password
+* MFA
+* password reset
+* session management
+* session revocation
+* login history
+* device/session management
+* secure cookies
+* session rotation
+
+Never store third-party social passwords.
+
+Use OAuth for social platforms wherever supported.
+
+---
+
+# 8. ROLE-BASED ACCESS CONTROL
+
+Roles:
+
+### SUPER ADMIN
+
+Everything.
+
+### ADMIN
+
+Organization and system administration.
+
+### MANAGER
+
+Team, tasks, approvals and operational management.
+
+### EDITOR
+
+Content creation.
+
+### PUBLISHER
+
+Publishing.
+
+### MODERATOR
+
+Comments/community management.
+
+### ANALYST
+
+Analytics and reports.
+
+### MAIL ADMIN
+
+Organization email management.
+
+### VIEWER
+
+Read-only.
+
+Implement granular permissions rather than relying only on roles.
+
+All permissions must be enforced server-side.
+
+---
+
+# 9. WORKSPACE ARCHITECTURE
+
+Support multiple workspaces.
+
+Structure:
+
+Organization
+→ Workspace
+→ Projects
+→ Teams
+→ Social Accounts
+→ Content
+→ Tasks
+→ Reports
+→ Mail identities
+
+Workspace isolation is mandatory.
+
+Users must never see data from unauthorized workspaces.
+
+---
+
+# 10. MAIN DASHBOARD
+
+Create an intelligent operational dashboard.
+
+## KPI cards
+
+* Connected Accounts
+* Active Accounts
+* Accounts Requiring Attention
+* Scheduled Posts
+* Pending Tasks
+* Awaiting Approval
+* Published Today
+* Failed Publications
+* Unread Comments
+* Team Activity
+* Mailboxes
+* Mail Delivery Health
+
+## Account Status
+
+Show:
+
+* platform
+* account
+* status
+* connection
+* API health
+* last sync
+* warnings
+* permission state
+
+---
+
+# 11. ACCOUNT HEALTH
+
+Do NOT claim to predict the exact date/time an account will be suspended.
+
+Instead implement:
+
+## Operational Account Health
+
+Statuses:
+
+GREEN — Healthy
+YELLOW — Attention Required
+ORANGE — Restricted/Warning
+RED — Connection/Platform Action
+
+Health signals may include:
+
+* API warnings
+* provider restrictions
+* authentication problems
+* failed publications
+* rate-limit events
+* permission changes
+* rejected content
+* synchronization failures
+* token expiration
+
+Every health score/status must be explainable.
+
+Example:
+
+> Attention Required — OAuth token expires in 3 days.
+
+Never fabricate:
+
+> "Account will be suspended in 5 days."
+
+---
+
+# 12. SOCIAL ACCOUNT MANAGEMENT
+
+Create:
+
+**Social Accounts → All Accounts**
+
+Supported architecture should be extensible for:
+
+* Facebook Pages
+* Instagram Business/Creator
+* X
+* LinkedIn Pages
+* TikTok
+* YouTube
+* Threads
+* Pinterest
+* future providers
+
+Capabilities differ by provider and account type.
+
+Do not assume every platform supports identical features.
+
+Current third-party platforms also document meaningful differences by channel/account type—for example, Buffer distinguishes publishing, analytics and engagement capabilities across Facebook Pages, Instagram professional accounts and X.
+
+---
+
+# 13. PROVIDER ADAPTER ARCHITECTURE
+
+Create:
+
+```text
+SocialProvider
+├── FacebookAdapter
+├── InstagramAdapter
+├── XAdapter
+├── LinkedInAdapter
+├── TikTokAdapter
+├── YouTubeAdapter
+├── ThreadsAdapter
+└── PinterestAdapter
+```
+
+Each adapter should expose capability metadata:
+
+```text
+publishing
+scheduling
+analytics
+comments
+replies
+media
+video
+stories
+reels
+webhooks
+```
+
+The UI must dynamically adapt according to provider capabilities.
+
+---
+
+# 14. OAUTH CONNECTION
+
+Flow:
+
+Connect Account
+↓
+Provider Authorization
+↓
+Authorization Code
+↓
+Secure Server-Side Exchange
+↓
+Encrypted Credential Storage
+↓
+Permission Validation
+↓
+Account Discovery
+↓
+Connected
+
+Never store provider passwords.
+
+Never expose OAuth tokens to frontend code.
+
+Encrypt credentials at rest.
+
+---
+
+# 15. ACCOUNT DETAIL PAGE
+
+Tabs:
+
+Overview
+Posts
+Analytics
+Audience
+Comments
+Activity
+Connection
+Health
+Permissions
+
+Display:
+
+* avatar
+* account name
+* username
+* platform
+* account ID
+* connection status
+* token status
+* permissions
+* follower count
+* reach
+* impressions
+* engagement
+* recent posts
+* comments
+* warnings
+* API errors
+* synchronization status
+
+---
+
+# 16. CONTENT LIBRARY
+
+Create enterprise media management.
+
+Support:
+
+* images
+* videos
+* GIFs
+* documents
+* captions
+* reusable posts
+* folders
+* tags
+* favorites
+* search
+* filtering
+* archive
+
+Media metadata:
+
+* filename
+* dimensions
+* size
+* type
+* uploader
+* date
+* tags
+* project
+* usage history
+
+Add drag-and-drop upload.
+
+Add previews.
+
+---
+
+# 17. ADVANCED COMPOSER
+
+Create a premium three-column composer.
+
+### LEFT
+
+Media library.
+
+### CENTER
+
+Post editor.
+
+### RIGHT
+
+Selected accounts
+Preview
+Scheduling
+Approval status
+
+Allow multi-account selection where the provider supports it.
+
+Example:
+
+☑ Facebook Page A
+☑ Facebook Page B
+☑ Instagram A
+☑ X Account A
+
+---
+
+# 18. PLATFORM-SPECIFIC CONTENT
+
+Provide:
+
+Common Content
+
+plus:
+
+Facebook Override
+Instagram Override
+X Override
+LinkedIn Override
+etc.
+
+Each provider must have its own validation.
+
+Validate:
+
+* character limit
+* media format
+* dimensions
+* video duration
+* file size
+* supported post type
+* API capability
+* account permissions
+
+---
+
+# 19. DUPLICATE-CONTENT GOVERNANCE
+
+Before multi-account publication:
+
+Calculate content similarity.
+
+Detect:
+
+* identical captions
+* substantially similar captions
+* repeated media
+* repeated URLs
+* repetitive hashtags
+
+Show warning where appropriate.
+
+Do not automatically bypass or disguise repeated content.
+
+X's current automation rules explicitly prohibit spammy automation and duplicative/substantially similar posts across multiple accounts.
+
+Therefore the system must implement **compliance warnings and human review**, not evasion.
+
+---
+
+# 20. PUBLISHING ENGINE
+
+Architecture:
+
+```text
+Post
+ ↓
+Validation
+ ↓
+Approval
+ ↓
+Queue
+ ↓
+Provider Adapter
+ ↓
+Official API
+ ↓
+Result
+ ↓
+Metrics Sync
+```
+
+Statuses:
+
+DRAFT
+AWAITING_APPROVAL
+APPROVED
+SCHEDULED
+QUEUED
+PUBLISHING
+PUBLISHED
+PARTIALLY_PUBLISHED
+FAILED
+CANCELLED
+
+Every publication attempt must have a unique ID.
+
+Store:
+
+* account
+* provider
+* post
+* timestamp
+* scheduled time
+* execution time
+* status
+* provider post ID
+* response
+* error
+* retry count
+
+---
+
+# 21. SMART QUEUE
+
+Build a durable background publishing queue.
+
+Requirements:
+
+* idempotency
+* safe retry
+* exponential backoff
+* provider-aware rate limits
+* concurrency control
+* failure recovery
+* dead-letter queue
+* observability
+
+If provider rate limit is reached:
+
+**WAIT → RESPECT RESET → RETRY**
+
+Never use IP/proxy rotation to bypass rate limits.
+
+---
+
+# 22. IP / NETWORK REQUIREMENT
+
+Do NOT implement an IP changer for suspension/rate-limit avoidance.
+
+Instead build:
+
+## Network & Operations Center
+
+Display:
+
+* connectivity status
+* API latency
+* provider status
+* request errors
+* rate-limit events
+* account/session activity
+* network diagnostics for authorized administrators
+
+Do NOT implement:
+
+* IP rotation
+* proxy rotation
+* VPN rotation for enforcement evasion
+* fingerprint spoofing
+* CAPTCHA bypass
+
+---
+
+# 23. CONTENT CALENDAR
+
+Views:
+
+* Month
+* Week
+* Day
+* List
+
+Filters:
+
+* platform
+* account
+* project
+* team member
+* status
+* content type
+
+Actions:
+
+* drag/drop
+* reschedule
+* duplicate
+* edit
+* preview
+* cancel
+* approve
+
+Timezone aware.
+
+---
+
+# 24. TASK MANAGEMENT
+
+Create professional task management.
+
+Fields:
+
+* title
+* description
+* creator
+* assignee
+* reviewer
+* priority
+* deadline
+* status
+* project
+* account
+* platform
+* content
+* attachments
+* comments
+
+Statuses:
+
+NEW
+ASSIGNED
+IN_PROGRESS
+REVIEW
+APPROVED
+COMPLETED
+BLOCKED
+
+Dashboard:
+
+My Tasks
+New
+Pending
+Due Today
+Overdue
+Completed
+
+---
+
+# 25. ADMIN TASK CONTROL
+
+Admins can:
+
+* create
+* assign
+* reassign
+* prioritize
+* set deadline
+* attach accounts
+* attach content
+* require approval
+* monitor
+* reopen
+* cancel
+
+Create workload visualization.
+
+---
+
+# 26. APPROVAL WORKFLOW
+
+Support:
+
+Editor
+↓
+Manager
+↓
+Approver
+↓
+Publisher
+↓
+Scheduled
+↓
+Published
+
+Configurable:
+
+* one-step approval
+* two-step
+* multi-step
+
+Every approval action must be audited.
+
+Later's current team workflow also emphasizes in-product approvals, permissions and shared calendars; use this as a workflow reference, not as a UI copy target.
+
+---
+
+# 27. UNIFIED INBOX
+
+Where provider APIs permit, aggregate:
+
+* comments
+* replies
+* mentions
+* supported messages
+
+Display:
+
+* platform
+* account
+* post
+* user
+* message
+* timestamp
+* sentiment classification
+* moderation state
+* assigned staff member
+
+Filters:
+
+* unread
+* unanswered
+* replied
+* positive
+* negative
+* priority
+* platform
+* account
+
+---
+
+# 28. COMMENT MODERATION
+
+Authorized users may:
+
+* reply
+* mark resolved
+* assign
+* add internal notes
+* hide where officially supported
+* report where officially supported
+
+Never create mass-reporting functionality.
+
+Never automatically target opposing users.
+
+---
+
+# 29. SENTIMENT ANALYSIS
+
+Sentiment classification may be used as an operational aid.
+
+Categories:
+
+Positive
+Neutral
+Negative
+Mixed
+Unknown
+
+Clearly label it as machine-generated.
+
+Do not use sentiment analysis to infer sensitive personal traits or to build political persuasion profiles.
+
+---
+
+# 30. ANALYTICS ENGINE
+
+Normalize provider metrics.
+
+## ACCOUNT METRICS
+
+* followers
+* follower growth
+* reach
+* impressions
+* profile views
+* engagement
+* engagement rate
+
+## POST METRICS
+
+* likes
+* comments
+* shares
+* saves
+* views
+* reach
+* impressions
+* clicks
+
+## VIDEO
+
+* views
+* watch time
+* completion
+* average duration
+
+Only display metrics actually supplied by the provider.
+
+Never fabricate missing metrics.
+
+---
+
+# 31. POST ANALYTICS
+
+Every published post has:
+
+Overview
+Performance
+Engagement
+Reach
+Impressions
+Comments
+Shares
+Clicks
+Follower Impact
+
+Charts:
+
+* engagement over time
+* reach
+* impressions
+* comments
+* shares
+
+---
+
+# 32. ACCOUNT ANALYTICS
+
+Date ranges:
+
+7 days
+30 days
+90 days
+6 months
+12 months
+Custom
+
+Charts:
+
+* follower growth
+* reach
+* engagement
+* publishing frequency
+* top posts
+* engagement trend
+
+---
+
+# 33. CROSS-PLATFORM ANALYTICS
+
+Aggregate:
+
+* published posts
+* reach
+* impressions
+* engagement
+* comments
+* follower growth
+
+Always show provider/source.
+
+Clearly distinguish metrics whose definitions differ between providers.
+
+---
+
+# 34. TEAM PERFORMANCE
+
+Track operational metrics:
+
+* tasks assigned
+* tasks completed
+* overdue
+* average completion time
+* approval turnaround
+* publishing failures
+* moderation workload
+* content production volume
+
+Do not create employee rankings based on political persuasion or influence.
+
+---
+
+# 35. REPORT BUILDER
+
+Reports:
+
+* account performance
+* post performance
+* follower growth
+* reach
+* engagement
+* publishing activity
+* team operations
+* account health
+* API health
+* mail health
+
+Exports:
+
+PDF
+CSV
+XLSX
+
+---
+
+# 36. NOTIFICATION CENTER
+
+Notify users about:
+
+* new task
+* assignment
+* deadline
+* approval request
+* approval result
+* successful publication
+* failed publication
+* expired OAuth
+* provider warning
+* rate limit
+* sync failure
+* mail security event
+
+---
+
+# 37. AUDIT LOG
+
+Every sensitive action must be recorded.
+
+Examples:
+
+LOGIN
+LOGOUT
+ACCOUNT_CONNECTED
+ACCOUNT_DISCONNECTED
+POST_CREATED
+POST_EDITED
+POST_APPROVED
+POST_REJECTED
+POST_SCHEDULED
+POST_PUBLISHED
+POST_FAILED
+TASK_CREATED
+TASK_ASSIGNED
+TASK_COMPLETED
+PERMISSION_CHANGED
+MAILBOX_CREATED
+MAILBOX_DISABLED
+DOMAIN_CHANGED
+SECURITY_SETTING_CHANGED
+
+Audit logs must be immutable.
+
+---
+
+# 38. ORGANIZATION MAIL INFRASTRUCTURE
+
+Add a complete:
+
+# MAIL CENTER
+
+The organization should be able to connect its own domain and mail infrastructure.
+
+Example:
+
+[staff01@organization.com](mailto:staff01@organization.com)
+[manager@organization.com](mailto:manager@organization.com)
+[operations@organization.com](mailto:operations@organization.com)
+[support@organization.com](mailto:support@organization.com)
+
+The system should provide centralized mailbox administration.
+
+---
+
+# 39. MAIL PROVIDER ARCHITECTURE
+
+Create:
+
+```text
+MailProvider
+├── SelfHostedMailAdapter
+├── SMTPAdapter
+├── IMAPAdapter
+└── FutureProviderAdapters
+```
+
+Do not hard-code the application to a single mail server.
+
+---
+
+# 40. DOMAIN MANAGEMENT
+
+Admin can:
+
+* add domain
+* verify domain
+* check DNS
+* verify MX
+* verify SPF
+* verify DKIM
+* verify DMARC
+* verify TLS
+* check rDNS/PTR
+* monitor mail-server health
+
+Status:
+
+CONFIGURED
+VERIFIED
+HEALTHY
+WARNING
+FAILED
+
+Never mark something verified without an actual check.
+
+---
+
+# 41. MAILBOX CREATION
+
+Create mailbox:
+
+Display Name
+First Name
+Last Name
+Username
+Domain
+Password
+Quota
+Department
+Role
+Status
+
+Optional:
+
+* forwarding
+* recovery address
+* auto reply
+
+Validate:
+
+* username
+* duplicate address
+* domain
+* password
+* quota
+
+---
+
+# 42. MAILBOX MANAGEMENT
+
+Admin can:
+
+* create
+* edit
+* disable
+* enable
+* suspend
+* reset password
+* change quota
+* delete
+* view activity
+
+Statuses:
+
+ACTIVE
+DISABLED
+SUSPENDED
+PENDING
+DELETED
+
+---
+
+# 43. MAIL ALIASES
+
+Support:
+
+info@
+support@
+sales@
+operations@
+
+Aliases may route to authorized mailboxes.
+
+---
+
+# 44. DISTRIBUTION GROUPS
+
+Example:
+
+[social-team@organization.com](mailto:social-team@organization.com)
+
+Members:
+
+member1@
+member2@
+member3@
+
+Support:
+
+* group creation
+* member management
+* permissions
+* delivery settings
+
+---
+
+# 45. WEBMAIL
+
+Provide:
+
+**Open Webmail**
+
+Integrate with the selected organization mail system.
+
+Do not expose mailbox passwords.
+
+Where supported, implement secure SSO/delegated authentication.
+
+---
+
+# 46. SMTP / IMAP
+
+Securely configure:
+
+SMTP
+IMAP
+
+Store:
+
+* host
+* port
+* TLS
+* username
+* encrypted credential
+
+Never expose credentials in frontend/API/logs.
+
+---
+
+# 47. MAIL DELIVERY MONITORING
+
+Dashboard:
+
+Sent
+Delivered
+Deferred
+Bounced
+Rejected
+Failed
+
+Display:
+
+* timestamp
+* sender
+* destination
+* status
+* error code
+* provider response
+
+Avoid storing unnecessary message bodies.
+
+---
+
+# 48. MAIL SECURITY
+
+Implement:
+
+* SPF
+* DKIM
+* DMARC
+* TLS
+* rDNS/PTR
+* MFA
+* login protection
+* brute-force protection
+* rate limits
+* suspicious activity monitoring
+* session management
+
+---
+
+# 49. MAIL ABUSE PROTECTION
+
+Implement:
+
+* per-mailbox sending limits
+* domain-level limits
+* anomaly detection
+* bounce monitoring
+* temporary outbound suspension
+* alerts
+
+The purpose is legitimate organizational communication.
+
+Do not build spam-filter bypassing or mass unsolicited-email functionality.
+
+---
+
+# 50. MAIL QUOTAS
+
+Support:
+
+5 GB
+10 GB
+25 GB
+50 GB
+Custom
+
+Show:
+
+Used
+Available
+Limit
+
+Alerts:
+
+80%
+90%
+
+---
+
+# 51. MAIL ADMIN DASHBOARD
+
+Show:
+
+Total Mailboxes
+Active
+Disabled
+Storage Used
+Storage Available
+Sent
+Delivered
+Bounce Rate
+Security Warnings
+Domain Health
+
+---
+
+# 52. USER ↔ MAIL IDENTITY
+
+Allow admin to create:
+
+Application User
++
+Organization Mailbox
+
+Example:
+
+User:
+Ahmed Khan
+
+Email:
+[ahmed@organization.com](mailto:ahmed@organization.com)
+
+Keep application identity and mailbox identity logically separate but linked.
+
+Deleting an application user must NOT automatically delete the mailbox without explicit confirmation.
+
+---
+
+# 53. MAIL PERMISSIONS
+
+Add:
+
+mail.domain.view
+mail.domain.manage
+mail.mailbox.view
+mail.mailbox.create
+mail.mailbox.edit
+mail.mailbox.disable
+mail.mailbox.delete
+mail.alias.manage
+mail.group.manage
+mail.security.view
+mail.security.manage
+mail.audit.view
+
+---
+
+# 54. MAIL HEALTH
+
+Create:
+
+Mail Infrastructure Health
+
+Display:
+
+Domain
+MX
+SPF
+DKIM
+DMARC
+TLS
+rDNS
+SMTP
+IMAP
+Storage
+Queue
+Delivery
+Bounce Rate
+
+---
+
+# 55. DATABASE ARCHITECTURE
+
+Create a relational schema.
+
+Core entities:
+
+```text
+Organization
+Workspace
+User
+Role
+Permission
+WorkspaceMember
+Project
+
+SocialProvider
+SocialAccount
+SocialConnection
+OAuthCredential
+
+MediaAsset
+ContentItem
+Post
+PostTarget
+PostVariant
+Schedule
+PublicationAttempt
+
+Task
+TaskComment
+Approval
+ApprovalStep
+
+Comment
+ModerationAction
+
+AccountHealthEvent
+PlatformWarning
+
+AnalyticsSnapshot
+PostMetric
+AccountMetric
+AudienceMetric
+
+Notification
+AuditLog
+WebhookEvent
+ApiRequestLog
+
+Report
+ReportSchedule
+
+MailDomain
+MailProvider
+MailServer
+Mailbox
+MailboxAlias
+MailGroup
+MailGroupMember
+MailCredential
+MailDeliveryEvent
+MailSecurityEvent
+MailAuditLog
+MailQuota
+```
+
+Use:
+
+* foreign keys
+* proper indexes
+* soft deletion where appropriate
+* migrations
+* transaction integrity
+
+---
+
+# 56. BACKGROUND WORKERS
+
+Use durable workers for:
+
+* scheduled posts
+* analytics synchronization
+* comments synchronization
+* account health checks
+* token expiration
+* report generation
+* mail health checks
+* mail delivery events
+* notifications
+
+Workers must be:
+
+* idempotent
+* retryable
+* observable
+* horizontally scalable
+
+---
+
+# 57. WEBHOOKS
+
+Where providers support them:
+
+* validate signature
+* validate timestamp
+* deduplicate event IDs
+* process asynchronously
+* store event
+* audit event
+
+---
+
+# 58. OBSERVABILITY
+
+Build:
+
+* application logs
+* API logs
+* provider errors
+* worker metrics
+* queue metrics
+* database metrics
+* sync status
+* latency
+* error rates
+* mail delivery status
+
+Create an Admin System Health page.
+
+---
+
+# 59. SEARCH
+
+Global search:
+
+Accounts
+Posts
+Tasks
+Comments
+Media
+Users
+Reports
+Mailboxes
+
+Support:
+
+* fuzzy search
+* filters
+* date range
+* platform
+* status
+
+---
+
+# 60. SECURITY ARCHITECTURE
+
+Mandatory:
+
+* encryption at rest
+* encryption in transit
+* secure cookies
+* CSRF protection
+* XSS protection
+* SQL injection protection
+* RBAC
+* MFA
+* rate limiting
+* secure sessions
+* OAuth token encryption
+* secret management
+* webhook verification
+* audit logs
+* backup strategy
+
+Never expose:
+
+* OAuth secrets
+* SMTP passwords
+* DKIM private keys
+* internal credentials
+* database passwords
+
+---
+
+# 61. PRIVACY
+
+Implement:
+
+* least privilege
+* data minimization
+* secure deletion
+* access control
+* auditability
+* configurable retention
+* export controls
+
+Do not collect unnecessary personal information about commenters or audiences.
+
+---
+
+# 62. RESPONSIVE DESIGN
+
+Desktop:
+
+Full command center.
+
+Tablet:
+
+Condensed workspace.
+
+Mobile:
+
+Mobile navigation + drawers + task view + notifications.
+
+Do not merely shrink desktop components.
+
+---
+
+# 63. ACCESSIBILITY
+
+Target WCAG-compatible practices.
+
+Implement:
+
+* keyboard navigation
+* focus states
+* semantic HTML
+* labels
+* screen-reader support
+* adequate contrast
+* reduced-motion preference
+* accessible dialogs
+
+---
+
+# 64. PERFORMANCE
+
+Target:
+
+* fast initial load
+* server-side pagination
+* virtualized lists
+* lazy media
+* cached analytics
+* background synchronization
+* optimized database queries
+* minimal API calls
+
+---
+
+# 65. API ARCHITECTURE
+
+Version APIs:
+
+```text
+/api/v1/auth
+/api/v1/users
+/api/v1/workspaces
+/api/v1/accounts
+/api/v1/posts
+/api/v1/tasks
+/api/v1/calendar
+/api/v1/analytics
+/api/v1/comments
+/api/v1/reports
+/api/v1/notifications
+/api/v1/audit
+/api/v1/mail
+/api/v1/domains
+/api/v1/mailboxes
+```
+
+Use:
+
+* schema validation
+* typed responses
+* consistent errors
+* authorization middleware
+* pagination
+* filtering
+* sorting
+
+---
+
+# 66. STANDARD API ERROR
+
+Use:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human readable message",
+    "details": {}
+  }
+}
+```
+
+Never expose stack traces.
+
+---
+
+# 67. PROVIDER CAPABILITY MATRIX
+
+Build a capability matrix.
+
+Example:
+
+| Provider  | Publishing | Analytics | Comments | Video   | Stories | Webhooks |
+| --------- | ---------- | --------- | -------- | ------- | ------- | -------- |
+| Facebook  | dynamic    | dynamic   | dynamic  | dynamic | dynamic | dynamic  |
+| Instagram | dynamic    | dynamic   | dynamic  | dynamic | dynamic | dynamic  |
+| X         | dynamic    | dynamic   | dynamic  | dynamic | N/A     | dynamic  |
+| LinkedIn  | dynamic    | dynamic   | dynamic  | dynamic | N/A     | dynamic  |
+| TikTok    | dynamic    | dynamic   | dynamic  | dynamic | dynamic | dynamic  |
+
+Never hard-code unsupported capabilities.
+
+---
+
+# 68. NO MOCK DATA IN PRODUCTION
+
+During development you may use fixtures.
+
+But production UI must clearly distinguish:
+
+LIVE
+MOCK
+SIMULATED
+UNAVAILABLE
+
+Never pretend mock analytics are real.
+
+---
+
+# 69. REAL INTEGRATION TESTING
+
+Never claim an integration is complete until tested against the actual provider environment where credentials and access are available.
+
+Clearly report:
+
+IMPLEMENTED
+CONFIGURED
+CONNECTED
+LIVE VERIFIED
+PARTIAL
+BLOCKED BY PROVIDER
+NOT AVAILABLE
+
+---
+
+# 70. TESTING STRATEGY
+
+Implement:
+
+### Unit
+
+Business logic.
+
+### Integration
+
+Database/API/provider adapters.
+
+### Security
+
+Auth/RBAC/secrets.
+
+### E2E
+
+Complete user workflows.
+
+### Worker
+
+Queue and retry behavior.
+
+### Provider
+
+OAuth/publishing/analytics.
+
+### Mail
+
+SMTP/IMAP/domain verification.
+
+---
+
+# 71. CRITICAL E2E TESTS
+
+Test:
+
+1. Admin login
+2. Staff login
+3. RBAC
+4. Workspace isolation
+5. Connect social account
+6. Disconnect account
+7. Create content
+8. Select multiple authorized accounts
+9. Validate platform-specific content
+10. Submit approval
+11. Approve
+12. Schedule
+13. Publish
+14. Handle API failure
+15. Retry safely
+16. Sync metrics
+17. Receive comments
+18. Moderate
+19. Create task
+20. Complete task
+21. Create mailbox
+22. Disable mailbox
+23. Verify domain
+24. Check mail health
+25. Audit every action
+
+---
+
+# 72. FAILURE TESTING
+
+Explicitly test:
+
+* expired OAuth
+* revoked permissions
+* rate limit
+* provider outage
+* API timeout
+* duplicate webhook
+* partial publication
+* failed media upload
+* duplicate publish prevention
+* worker crash
+* database transaction failure
+* SMTP failure
+* IMAP failure
+* DNS misconfiguration
+* bounced email
+* mailbox quota exceeded
+
+---
+
+# 73. ADMIN SYSTEM HEALTH
+
+Create an enterprise health console.
+
+Sections:
+
+### Application
+
+Healthy
+Degraded
+Down
+
+### Database
+
+Healthy
+Connection Pool
+Latency
+Errors
+
+### Workers
+
+Running
+Failed
+Queued
+Dead-letter
+
+### Social APIs
+
+Provider status
+Latency
+Errors
+Rate limits
+
+### Mail
+
+SMTP
+IMAP
+DNS
+Queue
+Delivery
+
+---
+
+# 74. PROJECT PHASES
+
+Do not build the entire system blindly in one pass.
+
+Execute in phases.
+
+## PHASE 0 — DISCOVERY & ARCHITECTURE
+
+Deliver:
+
+* PRD
+* architecture
+* database ERD
+* provider capability model
+* security model
+* permission model
+* UI information architecture
+* technical decisions
+* risks
+* implementation plan
+
+Do not start coding before establishing architecture.
+
+---
+
+## PHASE 1 — DESIGN SYSTEM
+
+Build:
+
+* typography
+* spacing
+* colors
+* light mode
+* dark mode
+* components
+* navigation
+* dashboard shell
+* responsive framework
+* command palette
+
+---
+
+## PHASE 2 — AUTH & ORGANIZATION
+
+Build:
+
+* authentication
+* MFA
+* sessions
+* RBAC
+* users
+* workspaces
+* permissions
+* audit system
+
+---
+
+## PHASE 3 — SOCIAL PROVIDER CORE
+
+Build:
+
+* provider abstraction
+* OAuth framework
+* account connections
+* capability detection
+* credential encryption
+* connection health
+
+---
+
+## PHASE 4 — CONTENT SYSTEM
+
+Build:
+
+* media library
+* content library
+* composer
+* previews
+* validation
+* account selector
+
+---
+
+## PHASE 5 — TASKS & APPROVALS
+
+Build:
+
+* tasks
+* assignments
+* deadlines
+* comments
+* approvals
+* workflows
+
+---
+
+## PHASE 6 — CALENDAR & PUBLISHING
+
+Build:
+
+* calendar
+* scheduling
+* queue
+* worker
+* retries
+* provider publishing
+* failure handling
+
+---
+
+## PHASE 7 — INBOX & MODERATION
+
+Build:
+
+* unified comments
+* moderation
+* sentiment
+* assignments
+* internal notes
+
+---
+
+## PHASE 8 — ANALYTICS
+
+Build:
+
+* account analytics
+* post analytics
+* cross-platform analytics
+* charts
+* historical sync
+* data normalization
+
+---
+
+## PHASE 9 — REPORTING
+
+Build:
+
+* report builder
+* scheduled reports
+* PDF
+* CSV
+* XLSX
+
+---
+
+## PHASE 10 — MAIL INFRASTRUCTURE
+
+Build:
+
+* domain management
+* DNS verification
+* SMTP
+* IMAP
+* mailbox management
+* aliases
+* groups
+* quotas
+* webmail integration
+* delivery monitoring
+* mail security
+
+---
+
+## PHASE 11 — NETWORK & OPERATIONS
+
+Build:
+
+* API health
+* rate-limit monitoring
+* publishing queue health
+* connection diagnostics
+* account health
+* session management
+
+Do NOT build IP rotation or enforcement-evasion functionality.
+
+---
+
+## PHASE 12 — ADMIN CONTROL CENTER
+
+Build:
+
+* organization management
+* staff management
+* account management
+* task management
+* mail management
+* system health
+* audit logs
+* security
+
+---
+
+## PHASE 13 — SECURITY HARDENING
+
+Perform:
+
+* penetration-style application review
+* RBAC audit
+* secret exposure review
+* session security review
+* API security review
+* webhook validation review
+* dependency audit
+* input validation audit
+
+---
+
+## PHASE 14 — PERFORMANCE
+
+Optimize:
+
+* database
+* queries
+* caching
+* queues
+* frontend bundles
+* image handling
+* analytics queries
+
+---
+
+## PHASE 15 — COMPLETE QA
+
+Run:
+
+* unit tests
+* integration tests
+* E2E
+* security tests
+* accessibility
+* responsive testing
+* performance testing
+
+---
+
+## PHASE 16 — PRODUCTION CERTIFICATION
+
+Final certification only when:
+
+* build passes
+* migrations pass
+* tests pass
+* security checks pass
+* critical workflows pass
+* provider integrations verified
+* mail integration verified
+* no critical errors remain
+
+---
+
+# 75. DEVELOPMENT RULE
+
+After every phase provide a structured report:
+
+```text
+PHASE
+STATUS
+
+IMPLEMENTED
+- ...
+
+DATABASE
+- ...
+
+API
+- ...
+
+UI
+- ...
+
+TESTS
+- ...
+
+SECURITY
+- ...
+
+LIVE VERIFICATION
+- ...
+
+KNOWN LIMITATIONS
+- ...
+
+NEXT PHASE
+- ...
+```
+
+Never hide incomplete work.
+
+---
+
+# 76. NO FALSE CERTIFICATION
+
+Never say:
+
+"Production Ready"
+
+if:
+
+* integrations are mocked
+* credentials are missing
+* tests are failing
+* migrations fail
+* security is incomplete
+* provider limitations prevent functionality
+
+Use exact statuses:
+
+PASS
+PARTIAL
+BLOCKED
+NOT TESTED
+NOT AVAILABLE
+LIVE VERIFIED
+
+---
+
+# 77. CONFIGURATION MANAGEMENT
+
+All environment-specific values must use environment variables.
+
+Examples:
+
+DATABASE_URL
+SESSION_SECRET
+ENCRYPTION_KEY
+SMTP_HOST
+SMTP_PORT
+SMTP_USERNAME
+SMTP_PASSWORD
+IMAP_HOST
+IMAP_PORT
+OAUTH_CLIENT_ID
+OAUTH_CLIENT_SECRET
+WEBHOOK_SECRET
+
+Never hard-code secrets.
+
+---
+
+# 78. SECRET MANAGEMENT
+
+Sensitive values must:
+
+* be encrypted
+* never appear in logs
+* never appear in Git
+* never appear in client bundles
+* never appear in API responses
+
+Provide secret rotation strategy.
+
+---
+
+# 79. DATABASE MIGRATIONS
+
+Every schema change must use migrations.
+
+Never manually modify production schema.
+
+Provide:
+
+* migration
+* rollback strategy
+* seed data
+* fixtures
+* indexes
+
+---
+
+# 80. DOCUMENTATION
+
+Maintain:
+
+/docs
+
+Including:
+
+ARCHITECTURE.md
+SECURITY.md
+AUTH.md
+RBAC.md
+SOCIAL_PROVIDERS.md
+PUBLISHING.md
+ANALYTICS.md
+MAIL.md
+API.md
+DATABASE.md
+DEPLOYMENT.md
+OPERATIONS.md
+TESTING.md
+TROUBLESHOOTING.md
+
+---
+
+# 81. UI COPY
+
+Use professional terminology.
+
+Avoid:
+
+* technical error jargon
+* confusing provider terminology
+* unexplained status codes
+
+Examples:
+
+Instead of:
+
+"OAuth token invalid"
+
+show:
+
+"Connection expired. Reconnect this account."
+
+Instead of:
+
+"429"
+
+show:
+
+"Publishing is temporarily paused because the platform has reached its request limit."
+
+---
+
+# 82. EMPTY STATES
+
+Every major page needs useful empty states.
+
+Example:
+
+No Social Accounts
+
+"Connect your first authorized social account to start managing publishing and analytics."
+
+No Tasks
+
+"You have no pending tasks."
+
+No Mailboxes
+
+"Create an organization mailbox from Mail Center."
+
+---
+
+# 83. ERROR UX
+
+Every error must tell the user:
+
+What happened
+Why it happened if known
+What they can do
+
+Example:
+
+**Publication Failed**
+
+The platform rejected this content type for the selected account.
+
+[View Details]
+
+---
+
+# 84. MOBILE
+
+Create a professional mobile experience for:
+
+* tasks
+* notifications
+* approvals
+* account health
+* calendar
+* analytics
+* comments
+
+Composer must remain usable on mobile.
+
+---
+
+# 85. FINAL PRODUCT STRUCTURE
+
+The completed application should conceptually look like:
+
+```text
+COMMAND CENTER
+│
+├── Dashboard
+│
+├── Social Operations
+│   ├── Accounts
+│   ├── Composer
+│   ├── Calendar
+│   ├── Publishing
+│   ├── Inbox
+│   └── Account Health
+│
+├── Content
+│   ├── Library
+│   ├── Drafts
+│   └── Published
+│
+├── Team
+│   ├── Tasks
+│   ├── Approvals
+│   ├── Members
+│   └── Permissions
+│
+├── Analytics
+│   ├── Accounts
+│   ├── Posts
+│   ├── Cross Platform
+│   └── Reports
+│
+├── Organization Mail
+│   ├── Domains
+│   ├── Mailboxes
+│   ├── Aliases
+│   ├── Groups
+│   ├── Delivery
+│   └── Security
+│
+├── Operations
+│   ├── API Health
+│   ├── Queue
+│   ├── Webhooks
+│   ├── Network Diagnostics
+│   └── System Health
+│
+├── Security
+│   ├── Sessions
+│   ├── Audit Logs
+│   └── Security Events
+│
+└── Settings
+```
+
+---
+
+# 86. PRODUCT QUALITY BAR
+
+The finished application must feel like a serious commercial SaaS product.
+
+The quality target is:
+
+**Enterprise reliability + modern macOS-inspired UX + Later-style workflow + Buffer-style simplicity + powerful internal operations management.**
+
+Do not settle for:
+
+* placeholder UI
+* fake charts
+* static dashboards
+* mock integrations presented as live
+* incomplete forms
+* broken responsive layouts
+* missing loading states
+* missing error handling
+* insecure credentials
+* untested workflows
+
+---
+
+# 87. FIRST ACTION
+
+Before writing substantial application code:
+
+1. Inspect the existing repository.
+2. Identify current stack.
+3. Identify existing database.
+4. Identify existing authentication.
+5. Identify reusable components.
+6. Identify deployment configuration.
+7. Identify testing framework.
+8. Identify environment configuration.
+9. Identify existing integrations.
+10. Produce a Phase 0 architecture report.
+
+Do NOT unnecessarily rewrite an existing healthy codebase.
+
+Reuse existing infrastructure when it is architecturally sound.
+
+---
+
+# 88. IMPLEMENTATION PRINCIPLE
+
+Every feature must answer:
+
+### WHO
+
+Who can access it?
+
+### WHAT
+
+What does it do?
+
+### WHERE
+
+Where is the data stored?
+
+### HOW
+
+How does the API/workflow operate?
+
+### SECURITY
+
+What permissions are required?
+
+### FAILURE
+
+What happens when it fails?
+
+### AUDIT
+
+What gets logged?
+
+### TEST
+
+How is it verified?
+
+If any feature cannot answer these questions, it is not production-ready.
+
+---
+
+# 89. FINAL COMMAND TO THE AI AGENT
+
+Start with **PHASE 0**.
+
+Do not skip architecture.
+
+Do not invent provider capabilities.
+
+Do not fake live integrations.
+
+Do not implement enforcement-evasion mechanisms.
+
+Do not expose secrets.
+
+Do not claim completion without evidence.
+
+Build incrementally.
+
+Test continuously.
+
+Document every major decision.
+
+Preserve existing working functionality.
+
+Prioritize:
+
+**SECURITY**
+**RELIABILITY**
+**COMPLIANCE**
+**DATA ACCURACY**
+**AUDITABILITY**
+**SCALABILITY**
+**PERFORMANCE**
+**UX**
+
+The objective is to create a long-term enterprise platform that can grow from an internal social-media operations system into a full communications and organization-management SaaS product.
+
+# END MASTER BUILD PROMPT

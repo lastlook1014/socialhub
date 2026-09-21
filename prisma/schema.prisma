@@ -1,0 +1,491 @@
+// Command Center — Enterprise schema
+// Covers §55 entities: Organization, Workspace, User, Role, Permission,
+// SocialAccount, Post, Task, Approval, Comment, Analytics, Mail, Audit, etc.
+//
+// Provider integrations run in DEMO mode (no real OAuth creds available in sandbox).
+// Every SocialAccount row records its integration_status honestly:
+//   LIVE_VERIFIED | DEMO | SIMULATED | BLOCKED_BY_PROVIDER | NOT_AVAILABLE
+// per master prompt §69.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// Organization, Workspace, Users, RBAC
+// ============================================================
+
+model Organization {
+  id          String      @id @default(cuid())
+  name        String
+  slug        String      @unique
+  domains     String?     // JSON array of email domains
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  workspaces  Workspace[]
+  users       User[]
+}
+
+model Workspace {
+  id              String   @id @default(cuid())
+  name            String
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  members         WorkspaceMember[]
+  socialAccounts  SocialAccount[]
+  posts            Post[]
+  tasks            Task[]
+  mediaAssets      MediaAsset[]
+  comments         Comment[]
+  notifications   Notification[]
+  reports         Report[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([organizationId])
+}
+
+model User {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  name           String
+  role           String   @default("VIEWER") // Role enum stored as string for SQLite
+  avatarUrl      String?
+  jobTitle       String?
+  department     String?
+  status         String   @default("ACTIVE") // ACTIVE | DISABLED | SUSPENDED
+  lastLoginAt    DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  memberships    WorkspaceMember[]
+  postsAuthored  Post[]
+  tasksAssigned  Task[]    @relation("TaskAssignee")
+  tasksCreated   Task[]    @relation("TaskCreator")
+  tasksReviewing Task[]    @relation("TaskReviewer")
+  taskComments   TaskComment[] @relation("TaskCommentAuthor")
+  approvals      Approval[]
+  comments       Comment[]
+  auditLogs      AuditLog[]
+  notifications  Notification[]
+  sessions       Session[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userAgent    String?
+  ipAddress    String?
+  createdAt     DateTime @default(now())
+  expiresAt    DateTime
+  revokedAt    DateTime?
+}
+
+model WorkspaceMember {
+  id           String   @id @default(cuid())
+  workspaceId  String
+  workspace    Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role         String   @default("MEMBER") // OWNER | ADMIN | MANAGER | EDITOR | PUBLISHER | MODERATOR | ANALYST | VIEWER
+  joinedAt     DateTime @default(now())
+
+  @@unique([workspaceId, userId])
+  @@index([workspaceId])
+}
+
+// ============================================================
+// Social Accounts & Providers (DEMO mode)
+// ============================================================
+
+model SocialAccount {
+  id                String   @id @default(cuid())
+  workspaceId       String
+  workspace         Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  provider          String   // facebook | instagram | x | linkedin | tiktok | youtube | threads | pinterest
+  handle            String
+  displayName       String
+  avatarUrl         String?
+  platformAccountId String?
+  // Connection state — honest about integration status
+  integrationStatus String   @default("DEMO") // LIVE_VERIFIED | DEMO | SIMULATED | BLOCKED_BY_PROVIDER | NOT_AVAILABLE
+  connectionStatus  String   @default("CONNECTED") // CONNECTED | EXPIRED | RECONNECTING | ERROR | DISCONNECTED
+  health            String   @default("GREEN") // GREEN | YELLOW | ORANGE | RED
+  healthReason      String?
+  followers         Int      @default(0)
+  reach30d          Int      @default(0)
+  impressions30d    Int      @default(0)
+  engagementRate    Float    @default(0)
+  // Capability flags
+  canPublish        Boolean  @default(true)
+  canSchedule        Boolean  @default(true)
+  canAnalytics       Boolean  @default(true)
+  canComments        Boolean  @default(true)
+  canVideo           Boolean  @default(true)
+  canStories         Boolean  @default(false)
+  canReels           Boolean  @default(false)
+  canWebhooks        Boolean  @default(true)
+  tokenExpiresAt     DateTime?
+  lastSyncAt         DateTime?
+  warnings          String?  // JSON array of warning strings
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  posts              Post[]
+  comments           Comment[]
+  metrics           AccountMetric[]
+  healthEvents      AccountHealthEvent[]
+
+  @@index([workspaceId])
+  @@index([provider])
+}
+
+model AccountHealthEvent {
+  id          String   @id @default(cuid())
+  accountId   String
+  account     SocialAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  type        String   // API_WARNING | RESTRICTED | AUTH_FAILED | PUBLISH_FAILED | RATE_LIMITED | PERMISSION_CHANGED | REJECTED_CONTENT | SYNC_FAILED | TOKEN_EXPIRED
+  severity    String   // INFO | WARNING | ERROR | CRITICAL
+  message     String
+  createdAt   DateTime @default(now())
+
+  @@index([accountId])
+}
+
+// ============================================================
+// Media & Content
+// ============================================================
+
+model MediaAsset {
+  id          String   @id @default(cuid())
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  filename    String
+  type        String   // IMAGE | VIDEO | GIF | DOCUMENT
+  mimeType    String
+  url         String
+  thumbnailUrl String?
+  size        Int      @default(0)
+  width       Int?
+  height      Int?
+  duration    Int?     // seconds for video
+  tags        String?  // JSON array
+  folder      String?
+  favorite    Boolean  @default(false)
+  uploadedById String?
+  createdAt   DateTime @default(now())
+
+  @@index([workspaceId])
+}
+
+model Post {
+  id            String   @id @default(cuid())
+  workspaceId   String
+  workspace     Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  authorId      String
+  author        User     @relation(fields: [authorId], references: [id])
+  title         String?
+  caption       String
+  mediaUrls     String?  // JSON array
+  hashtags      String?  // JSON array
+  status        String   @default("DRAFT") // DRAFT | AWAITING_APPROVAL | APPROVED | SCHEDULED | QUEUED | PUBLISHING | PUBLISHED | PARTIALLY_PUBLISHED | FAILED | CANCELLED
+  accountIds    String?  // JSON array of SocialAccount ids
+  scheduledAt   DateTime?
+  publishedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  accounts      SocialAccount[] // many-to-many via implicit join table
+  approvals     Approval[]
+  attempts      PublicationAttempt[]
+  metrics       PostMetric[]
+  comments      Comment[]
+
+  @@index([workspaceId])
+  @@index([status])
+}
+
+model PublicationAttempt {
+  id              String   @id @default(cuid())
+  postId          String
+  post            Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  accountId       String
+  provider        String
+  scheduledTime   DateTime?
+  executedAt      DateTime?
+  status          String   @default("QUEUED") // QUEUED | PUBLISHING | PUBLISHED | FAILED | RETRYING | DEAD_LETTER
+  providerPostId  String?
+  response        String?  // JSON
+  error           String?
+  retryCount      Int      @default(0)
+  createdAt       DateTime @default(now())
+
+  @@index([postId])
+  @@index([status])
+}
+
+// ============================================================
+// Tasks & Approvals
+// ============================================================
+
+model Task {
+  id           String    @id @default(cuid())
+  workspaceId  String
+  workspace    Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  title        String
+  description  String?
+  status       String    @default("NEW") // NEW | ASSIGNED | IN_PROGRESS | REVIEW | APPROVED | COMPLETED | BLOCKED
+  priority     String    @default("MEDIUM") // LOW | MEDIUM | HIGH | URGENT
+  creatorId    String
+  creator      User      @relation("TaskCreator", fields: [creatorId], references: [id])
+  assigneeId   String?
+  assignee     User?     @relation("TaskAssignee", fields: [assigneeId], references: [id])
+  reviewerId   String?
+  reviewer     User?     @relation("TaskReviewer", fields: [reviewerId], references: [id])
+  deadline     DateTime?
+  platform     String?
+  accountId    String?
+  attachments  String?   // JSON array
+  comments     TaskComment[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([workspaceId])
+  @@index([status])
+  @@index([assigneeId])
+}
+
+model TaskComment {
+  id        String   @id @default(cuid())
+  taskId    String
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation("TaskCommentAuthor", fields: [userId], references: [id])
+  body      String
+  createdAt DateTime @default(now())
+}
+
+model Approval {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  approverId String
+  approver  User     @relation(fields: [approverId], references: [id])
+  step      Int      @default(1)
+  decision  String   @default("PENDING") // PENDING | APPROVED | REJECTED | CHANGES_REQUESTED
+  comment   String?
+  createdAt DateTime @default(now())
+  decidedAt DateTime?
+
+  @@index([postId])
+}
+
+// ============================================================
+// Inbox / Comments / Moderation
+// ============================================================
+
+model Comment {
+  id              String   @id @default(cuid())
+  workspaceId     String
+  workspace       Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  accountId       String
+  account         SocialAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  postId          String?
+  post            Post?    @relation(fields: [postId], references: [id])
+  authorName      String
+  authorHandle    String?
+  authorAvatarUrl String?
+  body            String
+  sentiment       String   @default("NEUTRAL") // POSITIVE | NEUTRAL | NEGATIVE | MIXED | UNKNOWN
+  moderationState String   @default("NEW") // NEW | READ | REPLIED | RESOLVED | HIDDEN | REPORTED
+  assignedToId    String?
+  assignedTo      User?    @relation(fields: [assignedToId], references: [id])
+  createdAt       DateTime @default(now())
+  repliedAt       DateTime?
+
+  @@index([workspaceId])
+  @@index([moderationState])
+}
+
+// ============================================================
+// Analytics
+// ============================================================
+
+model AccountMetric {
+  id          String   @id @default(cuid())
+  accountId   String
+  account     SocialAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  date        DateTime
+  followers   Int
+  reach       Int
+  impressions Int
+  engagement Int
+  engagementRate Float
+
+  @@index([accountId, date])
+}
+
+model PostMetric {
+  id          String   @id @default(cuid())
+  postId      String
+  post        Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  date        DateTime
+  likes       Int      @default(0)
+  comments    Int      @default(0)
+  shares      Int      @default(0)
+  saves       Int      @default(0)
+  views       Int      @default(0)
+  reach       Int      @default(0)
+  impressions Int      @default(0)
+  clicks      Int      @default(0)
+
+  @@index([postId, date])
+}
+
+// ============================================================
+// Notifications, Audit, Reports
+// ============================================================
+
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspaceId String?
+  workspace   Workspace? @relation(fields: [workspaceId], references: [id])
+  type        String   // TASK_ASSIGNED | APPROVAL_REQUEST | PUBLISHED | FAILED | OAUTH_EXPIRED | PROVIDER_WARNING | RATE_LIMIT | SYNC_FAILURE | MAIL_SECURITY
+  title       String
+  body        String?
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([read])
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  workspaceId String?
+  action      String   // LOGIN | LOGOUT | ACCOUNT_CONNECTED | POST_CREATED | POST_APPROVED | POST_PUBLISHED | TASK_CREATED | PERMISSION_CHANGED | MAILBOX_CREATED | etc.
+  targetType  String?  // USER | POST | TASK | ACCOUNT | MAILBOX | DOMAIN
+  targetId    String?
+  metadata    String?  // JSON
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+
+  @@index([action])
+  @@index([createdAt])
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  name        String
+  type        String   // ACCOUNT_PERFORMANCE | POST_PERFORMANCE | FOLLOWER_GROWTH | REACH | ENGAGEMENT | PUBLISHING | TEAM_OPS | ACCOUNT_HEALTH | API_HEALTH | MAIL_HEALTH
+  format      String   @default("PDF") // PDF | CSV | XLSX
+  dateRange   String?  // 7d | 30d | 90d | 6m | 12m | custom
+  status      String   @default("READY") // GENERATING | READY | FAILED
+  scheduledAt DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([workspaceId])
+}
+
+// ============================================================
+// Mail Center
+// ============================================================
+
+model MailDomain {
+  id           String   @id @default(cuid())
+  domain       String   @unique
+  provider     String   @default("SELF_HOSTED") // SELF_HOSTED | SMTP | IMAP
+  status       String   @default("CONFIGURED") // CONFIGURED | VERIFIED | HEALTHY | WARNING | FAILED
+  mxStatus     String   @default("UNKNOWN")
+  spfStatus    String   @default("UNKNOWN")
+  dkimStatus   String   @default("UNKNOWN")
+  dmarcStatus  String   @default("UNKNOWN")
+  tlsStatus    String   @default("UNKNOWN")
+  ptrStatus    String   @default("UNKNOWN")
+  smtpHost     String?
+  smtpPort     Int?
+  imapHost     String?
+  imapPort     Int?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  mailboxes    Mailbox[]
+  aliases      MailAlias[]
+  groups       MailGroup[]
+}
+
+model Mailbox {
+  id           String   @id @default(cuid())
+  domainId     String
+  domain       MailDomain @relation(fields: [domainId], references: [id], onDelete: Cascade)
+  username     String
+  emailAddress String   @unique
+  displayName  String
+  firstName    String?
+  lastName     String?
+  department   String?
+  role         String?
+  quotaBytes   BigInt   @default(5368709120) // 5 GB
+  usedBytes    BigInt   @default(0)
+  status       String   @default("ACTIVE") // ACTIVE | DISABLED | SUSPENDED | PENDING | DELETED
+  forwardingTo String?
+  recoveryAddress String?
+  autoReply    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  deliveries   MailDeliveryEvent[]
+}
+
+model MailAlias {
+  id           String   @id @default(cuid())
+  domainId     String
+  domain       MailDomain @relation(fields: [domainId], references: [id], onDelete: Cascade)
+  alias        String   // e.g. info, support, sales
+  forwardsTo   String   // JSON array of mailbox addresses
+  createdAt    DateTime @default(now())
+}
+
+model MailGroup {
+  id           String   @id @default(cuid())
+  domainId     String
+  domain       MailDomain @relation(fields: [domainId], references: [id], onDelete: Cascade)
+  name         String   // e.g. social-team
+  emailAddress String   @unique
+  members      String   // JSON array of mailbox addresses
+  createdAt    DateTime @default(now())
+}
+
+model MailDeliveryEvent {
+  id          String   @id @default(cuid())
+  mailboxId   String
+  mailbox     Mailbox  @relation(fields: [mailboxId], references: [id], onDelete: Cascade)
+  direction   String   @default("OUTBOUND") // OUTBOUND | INBOUND
+  sender      String
+  recipient   String
+  subject     String?
+  status      String   // SENT | DELIVERED | DEFERRED | BOUNCED | REJECTED | FAILED
+  errorCode   String?
+  providerResponse String?
+  timestamp   DateTime @default(now())
+
+  @@index([mailboxId])
+}
+
+model MailSecurityEvent {
+  id          String   @id @default(cuid())
+  type        String   // BRUTE_FORCE | ANOMALY | BOUNCE_SPIKE | RATE_LIMIT | SUSPICIOUS_LOGIN
+  severity    String   @default("WARNING")
+  mailboxId   String?
+  message     String
+  createdAt   DateTime @default(now())
+}
